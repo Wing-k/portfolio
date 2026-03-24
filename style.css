@@ -68,11 +68,12 @@
  
     /* ── HOME ── */
     #home {
-      min-height: 90vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 4rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
       position: relative;
     }
  
@@ -153,7 +154,6 @@
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: 1px;
       height: 30vh;
       background: linear-gradient(to bottom, transparent, var(--border), transparent);
       opacity: 0;
