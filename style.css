@@ -68,11 +68,12 @@
  
     /* ── HERO ── */
     #hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding-top: 2rem;
+      position: relative;
     }
  
     .hero-label {
@@ -80,7 +81,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0rem;
+      margin-bottom: 1.5rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.2s forwards;
     }
@@ -117,6 +118,7 @@
       animation: fadeUp 0.8s 0.8s forwards;
     }
  
+ 
     .btn {
       display: inline-block;
       text-decoration: none;
@@ -149,9 +151,10 @@
     .hero-line {
       position: relative;
       right: 0;
+      top: 50%;
       transform: translateY(-50%);
       width: 1px;
-      height: 40vh;
+      height: 20vh;
       background: linear-gradient(to bottom, transparent, var(--border), transparent);
       opacity: 0;
       animation: fadeIn 1.2s 1s forwards;
