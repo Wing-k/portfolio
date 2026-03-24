@@ -1,0 +1,17 @@
+# macOS hidden files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon file with a carriage return (hidden system file)
+Icon?
+
+# Thumbnails
+._*
+
+# Files that might be created by a code editor (like VS Code)
+.vscode/
+*.swp
+
+# Logs
+*.log
