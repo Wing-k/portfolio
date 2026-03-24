@@ -68,7 +68,7 @@
  
     /* ── HOME ── */
     #home {
-      min-height: 280vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -149,7 +149,7 @@
  
     /* decorative line */
     .home-line {
-      position: relative;
+      position: absolute;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
