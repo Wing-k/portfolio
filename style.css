@@ -66,8 +66,8 @@
     /* ── SECTIONS ── */
     section { padding: 7rem 4rem; max-width: 1100px; margin: 0 auto; }
  
-    /* ── HERO ── */
-    #hero {
+    /* ── HOME ── */
+    #home {
       min-height: 280vh;
       display: flex;
       flex-direction: column;
@@ -76,7 +76,7 @@
       position: relative;
     }
  
-    .hero-label {
+    .home-label {
       font-size: 0.78rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -86,7 +86,7 @@
       animation: fadeUp 0.8s 0.2s forwards;
     }
  
-    .hero-heading {
+    .home-heading {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(3rem, 7vw, 6rem);
       line-height: 1.08;
@@ -96,12 +96,12 @@
       animation: fadeUp 0.8s 0.4s forwards;
     }
  
-    .hero-heading em {
+    .home-heading em {
       font-style: italic;
       color: var(--accent);
     }
  
-    .hero-sub {
+    .home-sub {
       margin-top: 1rem;
       font-size: 1.05rem;
       color: var(--muted);
@@ -110,7 +110,7 @@
       animation: fadeUp 0.8s 0.6s forwards;
     }
  
-    .hero-cta {
+    .home-cta {
       margin-top: 1.5rem;
       display: flex;
       gap: 1.2rem;
@@ -148,7 +148,7 @@
     }
  
     /* decorative line */
-    .hero-line {
+    .home-line {
       position: relative;
       right: 0;
       top: 50%;
@@ -507,7 +507,7 @@
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       section { padding: 5rem 1.5rem; }
-      .hero-heading { font-size: 2.8rem; }
+      .home-heading { font-size: 2.8rem; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-sticky { position: static; }
       .work-grid { grid-template-columns: 1fr; }
