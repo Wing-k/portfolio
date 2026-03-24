@@ -147,7 +147,7 @@
  
     /* decorative line */
     .hero-line {
-      position: absolute;
+      position: relative;
       right: 0;
       transform: translateY(-50%);
       width: 1px;
