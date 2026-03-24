@@ -1,98 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UX Researcher Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — UX Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-    <nav>
-        <div class="logo">WK</div>
-        <div class="nav-links">
-            <a href="#work">Case Studies</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+ 
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">Your Name</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+ 
+  <!-- HERO -->
+  <section id="hero">
+    <p class="hero-label">UX Researcher</p>
+    <h1 class="hero-heading">
+      Designing for people,<br>
+      <em>guided by curiosity</em>
+    </h1>
+    <p class="hero-sub">
+      I help teams understand their users — turning messy complexity into clear, human-centered insight.
+    </p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">See my work</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+    <div class="hero-line"></div>
+  </section>
+ 
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-divider"></div>
+    <p class="section-label">Selected work</p>
+ 
+    <div class="work-grid">
+ 
+      <!-- Featured card -->
+      <a href="#" class="case-card featured reveal">
+        <div>
+          <p class="card-number">01</p>
+          <h3 class="card-title">Redesigning the onboarding experience for a fintech app</h3>
+          <p class="card-desc">End-to-end research from discovery to validation — uncovering why 60% of users dropped off in the first week.</p>
+          <div class="card-tags">
+            <span class="tag">Usability Testing</span>
+            <span class="tag">Journey Mapping</span>
+            <span class="tag">Interviews</span>
+          </div>
         </div>
-    </nav>
-
-    <header id="about" class="section">
-        <div class="hero-content">
-            <h1>Hi, I'm Wing.<br>A UX Researcher with 2+ years of experience.</h1>
-            <p>Based in the San Francisco Bay Area, I blend deep user empathy with analytical research to build intuitive, engaging digital experiences. When I'm not mapping out user journeys, I'm likely exploring the local culinary scene or creating lifestyle content.</p>
+        <div class="card-visual">🔍</div>
+        <span class="card-arrow">↗</span>
+      </a>
+ 
+      <!-- Card 2 -->
+      <a href="#" class="case-card reveal">
+        <p class="card-number">02</p>
+        <span class="card-arrow">↗</span>
+        <h3 class="card-title">Accessibility audit for a healthcare platform</h3>
+        <p class="card-desc">Mixed-methods research with users with disabilities to identify critical barriers and advocate for inclusive design.</p>
+        <div class="card-tags">
+          <span class="tag">Accessibility</span>
+          <span class="tag">Heuristic Eval</span>
         </div>
-    </header>
-
-    <section id="work" class="section">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <a href="#" class="project-card">
-                <h3>Trust in Social Commerce</h3>
-                <p>A comparative study evaluating payment security and user trust signals across social shopping platforms.</p>
-                <span class="tag">UX Research</span>
-            </a>
-            <a href="#" class="project-card">
-                <h3>Digital Wallets & US Card Penetration</h3>
-                <p>Competitive analysis and usability evaluation of modern digital payment systems.</p>
-                <span class="tag">Competitive Analysis</span>
-            </a>
-            <a href="#" class="project-card">
-                <h3>Le Petit Chef Campaign</h3>
-                <p>Brand partnership managing end-to-end digital storytelling for a 3D dining experience.</p>
-                <span class="tag">Content Strategy</span>
-            </a>
+      </a>
+ 
+      <!-- Card 3 -->
+      <a href="#" class="case-card reveal">
+        <p class="card-number">03</p>
+        <span class="card-arrow">↗</span>
+        <h3 class="card-title">Generative research for a B2B SaaS product</h3>
+        <p class="card-desc">Stakeholder interviews and contextual inquiry to define the problem space before any design began.</p>
+        <div class="card-tags">
+          <span class="tag">Contextual Inquiry</span>
+          <span class="tag">Synthesis</span>
         </div>
-      
-    </section>
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <div class="about-container">
-            <p>
-              I'm a Bay Area-based UX Researcher dedicated to bringing data-driven solutions to life through a Human Factors lens. 
-              With over two years in the field, I’ve strengthened my skills across the full research spectrum: planning and executing user studies (both qualitative and quantitative), analyzing complex behavioral data, and translating key research insights directly into product strategy and design recommendations. 
-              My creative journey is fueled by a desire to explore and understand, a curiosity that guides my research process and helps me uncover the unexpected "why" behind user behavior. I'm excited to work with diverse teams to create innovative products that truly make a difference in people's lives.
-            </p>
+      </a>
+ 
+    </div>
+  </section>
+ 
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-divider"></div>
+    <p class="section-label">About me</p>
+ 
+    <div class="about-grid">
+      <div class="about-sticky reveal">
+        <h2 class="about-name">Your Name</h2>
+        <span class="about-title-tag">UX Researcher</span>
+      </div>
+      <div class="reveal">
+        <p class="about-bio">
+          I'm a UX researcher with a background in <strong>cognitive psychology</strong> and a deep love for the messy, human parts of design. I believe the best products start with honest questions — and I'm good at asking them.
+        </p>
+        <p class="about-bio">
+          I work best in the <strong>ambiguous early stages</strong> of a project, helping teams build a shared understanding of who they're designing for. I care about rigor, clarity, and making research feel accessible to everyone in the room.
+        </p>
+        <p class="about-bio">
+          Outside of work, I'm probably at a ceramics studio, on a long walk, or reading something that has nothing to do with design.
+        </p>
+        <div class="about-values">
+          <span class="tag">Qualitative research</span>
+          <span class="tag">Usability testing</span>
+          <span class="tag">Survey design</span>
+          <span class="tag">Synthesis & storytelling</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Dovetail</span>
+          <span class="tag">Workshop facilitation</span>
         </div>
-    </section>
-
-  
-    <section id="experience" class="section bg-light">
-        <h2>Experience</h2>
-        <div class="experience-list">
-            <div class="experience-item">
-                <div class="role">UX Researcher</div>
-                <div class="company-time">
-                    <span class="company">ByteDance</span>
-                    <span class="time">Feb 2026 - Present</span>
-                </div>
-            </div>
-            <div class="experience-item">
-                <div class="role">User Research Study Coordinator</div>
-                <div class="company-time">
-                    <span class="company">Apple</span>
-                    <span class="time">July 2025 - Feb 2026</span>
-                </div>
-            </div>
-            <div class="experience-item">
-                <div class="role">UX Designer & Researcher</div>
-                <div class="company-time">
-                    <span class="company">Tech4Good</span>
-                    <span class="time">April 2023 - September 2024</span>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-divider"></div>
+    <p class="section-label">Experience</p>
+ 
+    <div class="exp-list reveal">
+ 
+      <div class="exp-item">
+        <span class="exp-period">2023 — Present</span>
+        <span class="exp-role">Senior UX Researcher</span>
+        <span class="exp-company">Company Name</span>
+      </div>
+ 
+      <div class="exp-item">
+        <span class="exp-period">2021 — 2023</span>
+        <span class="exp-role">UX Researcher</span>
+        <span class="exp-company">Company Name</span>
+      </div>
+ 
+      <div class="exp-item">
+        <span class="exp-period">2019 — 2021</span>
+        <span class="exp-role">Research Associate</span>
+        <span class="exp-company">Company Name</span>
+      </div>
+ 
+      <div class="exp-item">
+        <span class="exp-period">2018 — 2019</span>
+        <span class="exp-role">UX Research Intern</span>
+        <span class="exp-company">Company Name</span>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-divider"></div>
+    <p class="section-label">Get in touch</p>
+ 
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="contact-heading">Let's work<br><em>together</em></h2>
+        <p class="contact-note">
+          Whether you're looking for a research partner, want to chat about a project, or just want to say hi — my inbox is open.
+        </p>
+      </div>
+ 
+      <form class="reveal" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name" />
         </div>
-    </section>
-  
-    <section id="contact" class="section bg-light">
-        <h2>Let's Connect</h2>
-        <p>Feel free to reach out at wingkoon0718@gmail.com!</p>
-    </section>
-
-    <footer>
-        <p>© 2026 Wing Koon</p>
-    </footer>
-
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell me about your project…"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send message →</button>
+      </form>
+    </div>
+  </section>
+ 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-name">Your Name</span>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:you@email.com">Email</a></li>
+        <li><a href="#">Resume</a></li>
+      </ul>
+    </div>
+  </footer>
+ 
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+ 
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+ 
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Sent! ✓';
+      btn.style.background = '#2e7dd1';
+      setTimeout(() => {
+        btn.textContent = 'Send message →';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
 </body>
 </html>
