@@ -152,9 +152,9 @@
     .home-line {
       position: absolute;
       right: 0;
-      top: 30%;
+      top: 0%;
       transform: translateY(-50%);
-      height: 20vh;
+      height: 10vh;
       background: linear-gradient(to bottom, transparent, var(--border), transparent);
       opacity: 0;
       animation: fadeIn 1.2s 1s forwards;
