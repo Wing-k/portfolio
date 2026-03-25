@@ -104,7 +104,7 @@
  
     .home-sub {
       margin-top: 1rem;
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--muted);
       max-width: 460px;
       opacity: 0;
@@ -152,9 +152,9 @@
     .home-line {
       position: absolute;
       right: 0;
-      top: 50%;
+      top: 30%;
       transform: translateY(-50%);
-      height: 30vh;
+      height: 20vh;
       background: linear-gradient(to bottom, transparent, var(--border), transparent);
       opacity: 0;
       animation: fadeIn 1.2s 1s forwards;
