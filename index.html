@@ -4,226 +4,181 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Name — UX Researcher</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
  
-  <!-- NAV -->
-  <nav id="navbar">
-    <a href="#home" class="nav-logo">Your Name</a>
+<div class="spiral-holes" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+ 
+<main>
+<div class="content-wrap">
+ 
+  <nav>
+    <a href="index.html" class="nav-logo">Your Name</a>
     <ul class="nav-links">
-      <li><a href="#work">projects</a></li>
+      <li><a href="#work" class="active">Work</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
  
-  <!-- HERO -->
-  <section id="home">
-    <p class="home-label">UX Researcher</p>
-    <h1 class="home-heading">
-      Designing for people,<br>
-      <em>guided by curiosity</em>
-    </h1>
-    <p class="home-sub">
-      I help teams understand their users — turning messy complexity into clear, human-centered insight.
-    </p>
-    <div class="home-cta">
-      <a href="#work" class="btn btn-primary">See my work</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner">
+ 
+      <div class="hero-text">
+        <span class="hero-tag">✦ UX Researcher</span>
+        <h1>Designing through<br><span class="highlight">curiosity &amp; clarity</span></h1>
+        <p class="hero-bio">
+          I help teams understand their users — through <strong>interviews, synthesis, and evidence-based design decisions</strong>. Currently open to new projects.
+        </p>
+        <div class="hero-cta">
+          <a href="#work" class="btn-primary">See my work →</a>
+          <a href="#contact" class="btn-secondary">or get in touch</a>
+        </div>
+      </div>
+ 
+      <!--
+        TO ADD YOUR PHOTO: replace the div below with:
+        <img src="your-photo.jpg" alt="Your Name" class="hero-photo" />
+      -->
+      <div class="hero-photo-wrap">
+        <div class="photo-placeholder hero-placeholder">
+          <div class="photo-tape hero-tape"></div>
+          Your photo here
+        </div>
+      </div>
+ 
     </div>
-    <div class="home-line"></div>
   </section>
  
-  <!-- WORK -->
+  <!-- ── Case Studies ── -->
   <section id="work">
-    <div class="section-divider"></div>
-    <p class="section-label">Selected work</p>
+    <div class="section-label">
+      <h2>Case Studies</h2>
+      <div class="line"></div>
+      <span class="tab">3 projects</span>
+    </div>
  
-    <div class="work-grid">
+    <div class="case-grid">
  
-      <!-- Featured card -->
-      <a href="#" class="case-card featured reveal">
-        <div>
-          <p class="card-number">01</p>
-          <h3 class="card-title">Redesigning the onboarding experience for a fintech app</h3>
-          <p class="card-desc">End-to-end research from discovery to validation — uncovering why 60% of users dropped off in the first week.</p>
-          <div class="card-tags">
-            <span class="tag">Usability Testing</span>
-            <span class="tag">Journey Mapping</span>
-            <span class="tag">Interviews</span>
-          </div>
+      <a href="case-study-onboarding.html" class="case-card">
+        <div class="case-card-thumb thumb-sage">
+          <div class="tape"></div>
+          <span class="thumb-icon">◎</span>
         </div>
-        <div class="card-visual">🔍</div>
-        <span class="card-arrow">↗</span>
-      </a>
- 
-      <!-- Card 2 -->
-      <a href="#" class="case-card reveal">
-        <p class="card-number">02</p>
-        <span class="card-arrow">↗</span>
-        <h3 class="card-title">Accessibility audit for a healthcare platform</h3>
-        <p class="card-desc">Mixed-methods research with users with disabilities to identify critical barriers and advocate for inclusive design.</p>
-        <div class="card-tags">
-          <span class="tag">Accessibility</span>
-          <span class="tag">Heuristic Eval</span>
+        <div class="case-card-body">
+          <span class="case-tag">Mobile App</span>
+          <h3>Reducing friction in onboarding flows</h3>
+          <p>Discovery research + usability testing for a fintech startup's new user journey.</p>
+          <div class="case-arrow">Read case study <span>→</span></div>
         </div>
       </a>
  
-      <!-- Card 3 -->
-      <a href="#" class="case-card reveal">
-        <p class="card-number">03</p>
-        <span class="card-arrow">↗</span>
-        <h3 class="card-title">Generative research for a B2B SaaS product</h3>
-        <p class="card-desc">Stakeholder interviews and contextual inquiry to define the problem space before any design began.</p>
-        <div class="card-tags">
-          <span class="tag">Contextual Inquiry</span>
-          <span class="tag">Synthesis</span>
+      <a href="case-study-workflows.html" class="case-card">
+        <div class="case-card-thumb thumb-blush">
+          <div class="tape" style="transform: rotate(-3deg);"></div>
+          <span class="thumb-icon">⬡</span>
+        </div>
+        <div class="case-card-body">
+          <span class="case-tag">Enterprise SaaS</span>
+          <h3>Understanding complex workflows at scale</h3>
+          <p>12-week ethnographic study mapping how operations teams track cross-team work.</p>
+          <div class="case-arrow">Read case study <span>→</span></div>
+        </div>
+      </a>
+ 
+      <a href="case-study-accessibility.html" class="case-card">
+        <div class="case-card-thumb thumb-mixed">
+          <div class="tape" style="transform: rotate(1deg); right: 20px;"></div>
+          <span class="thumb-icon">⬭</span>
+        </div>
+        <div class="case-card-body">
+          <span class="case-tag">Health &amp; Wellness</span>
+          <h3>Designing for accessibility first</h3>
+          <p>Generative research with older adults for a telehealth platform's patient portal.</p>
+          <div class="case-arrow">Read case study <span>→</span></div>
         </div>
       </a>
  
     </div>
   </section>
  
-  <!-- ABOUT -->
+  <!-- ── Methods ── -->
+  <section id="methods">
+    <div class="section-label">
+      <h2>Methods I use</h2>
+      <div class="line"></div>
+    </div>
+    <div class="methods-list">
+      <span class="method-tag">User interviews</span>
+      <span class="method-tag">Usability testing</span>
+      <span class="method-tag">Journey mapping</span>
+      <span class="method-tag">Affinity diagramming</span>
+      <span class="method-tag">Diary studies</span>
+      <span class="method-tag">Contextual inquiry</span>
+      <span class="method-tag">Surveys &amp; quant</span>
+      <span class="method-tag">Card sorting</span>
+      <span class="method-tag">Stakeholder interviews</span>
+      <span class="method-tag">Concept testing</span>
+    </div>
+  </section>
+ 
+  <!-- ── About ── -->
   <section id="about">
-    <div class="section-divider"></div>
-    <p class="section-label">About me</p>
+    <div class="section-label">
+      <h2>About me</h2>
+      <div class="line"></div>
+    </div>
+    <div class="about-inner">
  
-    <div class="about-grid">
-      <div class="about-sticky reveal">
-        <h2 class="about-name">Your Name</h2>
-        <span class="about-title-tag">UX Researcher</span>
-      </div>
-      <div class="reveal">
-        <p class="about-bio">
-          I'm a UX researcher with a background in <strong>cognitive psychology</strong> and a deep love for the messy, human parts of design. I believe the best products start with honest questions — and I'm good at asking them.
-        </p>
-        <p class="about-bio">
-          I work best in the <strong>ambiguous early stages</strong> of a project, helping teams build a shared understanding of who they're designing for. I care about rigor, clarity, and making research feel accessible to everyone in the room.
-        </p>
-        <p class="about-bio">
-          Outside of work, I'm probably at a ceramics studio, on a long walk, or reading something that has nothing to do with design.
-        </p>
-        <div class="about-values">
-          <span class="tag">Qualitative research</span>
-          <span class="tag">Usability testing</span>
-          <span class="tag">Survey design</span>
-          <span class="tag">Synthesis & storytelling</span>
-          <span class="tag">Figma</span>
-          <span class="tag">Dovetail</span>
-          <span class="tag">Workshop facilitation</span>
+      <!--
+        TO ADD YOUR PHOTO: replace the div below with:
+        <img src="your-about-photo.jpg" alt="Your Name" class="about-photo" />
+      -->
+      <div class="about-photo-wrap">
+        <div class="photo-placeholder about-placeholder">
+          <div class="photo-tape about-tape"></div>
+          Your photo here
         </div>
       </div>
-    <!-- EXPERIENCE -->
-    </div>
-        <div class="section-divider"></div>
-    <p class="section-label">Experience</p>
  
-    <div class="exp-list reveal">
- 
-      <div class="exp-item">
-        <span class="exp-period">2023 — Present</span>
-        <span class="exp-role">Senior UX Researcher</span>
-        <span class="exp-company">Company Name</span>
-      </div>
- 
-      <div class="exp-item">
-        <span class="exp-period">2021 — 2023</span>
-        <span class="exp-role">UX Researcher</span>
-        <span class="exp-company">Company Name</span>
-      </div>
- 
-      <div class="exp-item">
-        <span class="exp-period">2019 — 2021</span>
-        <span class="exp-role">Research Associate</span>
-        <span class="exp-company">Company Name</span>
-      </div>
- 
-      <div class="exp-item">
-        <span class="exp-period">2018 — 2019</span>
-        <span class="exp-role">UX Research Intern</span>
-        <span class="exp-company">Company Name</span>
+      <div class="about-box">
+        <p>
+          I'm a UX researcher with <strong>X years of experience</strong> working across fintech, healthcare, and enterprise software. I'm drawn to messy, complex problems — the kind that take real listening to untangle.
+        </p>
+        <p>
+          Outside of work, I sketch in actual notebooks, take long walks with bad podcasts, and over-document things. If you're curious about my process, I'm always happy to talk.
+        </p>
       </div>
  
     </div>
   </section>
-
-  <!-- CONTACT -->
+ 
+  <!-- ── Contact ── -->
   <section id="contact">
-    <div class="section-divider"></div>
-    <p class="section-label">Get in touch</p>
- 
-    <div class="contact-grid">
-      <div class="reveal">
-        <h2 class="contact-heading">Let's work<br><em>together</em></h2>
-        <p class="contact-note">
-          Whether you're looking for a research partner, want to chat about a project, or just want to say hi — my inbox is open.
-        </p>
-      </div>
- 
-      <form class="reveal" onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your name" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me about your project…"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send message →</button>
-      </form>
+    <div class="section-label">
+      <h2>Let's connect</h2>
+      <div class="line"></div>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:you@email.com" class="contact-link">✉ Email</a>
+      <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">LinkedIn</a>
+      <a href="https://read.cv/yourprofile" class="contact-link" target="_blank">Read.cv</a>
+      <a href="your-resume.pdf" class="contact-link" target="_blank">Resume ↓</a>
     </div>
   </section>
  
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <span class="footer-name">Your Name</span>
-      <ul class="footer-links">
-        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-        <li><a href="mailto:you@email.com">Email</a></li>
-        <li><a href="#">Resume</a></li>
-      </ul>
-    </div>
+    <p>Made with graph paper &amp; good intentions.</p>
+    <span class="page-num">p. 01</span>
   </footer>
  
-  <script>
-    // Nav scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
+</div><!-- /content-wrap -->
+</main>
  
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
- 
-    // Form submit
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.textContent = 'Sent! ✓';
-      btn.style.background = '#2e7dd1';
-      setTimeout(() => {
-        btn.textContent = 'Send message →';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
-    }
-  </script>
 </body>
 </html>
