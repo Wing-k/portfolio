@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
 /* ── Tokens ── */
@@ -29,56 +30,12 @@ body {
   min-height: 100vh;
 }
 
-/* ── Notebook sidebar ── */
-body::before {
-  content: '';
-  position: fixed;
-  left: 0; top: 0; bottom: 0;
-  width: var(--sidebar-w);
-  background-color: var(--sage-pale);
-  border-right: 2px solid var(--sage);
-  z-index: 100;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  left: 22px; top: 0; bottom: 0;
-  width: 2px;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--sage) 0px, var(--sage) 14px,
-    transparent 14px, transparent 28px
-  );
-  z-index: 101;
-}
-
-/* ── Spiral holes ── */
-.spiral-holes {
-  position: fixed;
-  left: 8px; top: 0; bottom: 0;
-  width: 28px;
-  z-index: 102;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  pointer-events: none;
-}
-
-.spiral-holes span {
-  display: block;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--sage);
-  flex-shrink: 0;
-}
+/* ── Spiral holes (hidden) ── */
+.spiral-holes { display: none; }
 
 /* ── Layout ── */
 main {
-  margin-left: var(--sidebar-w);
-  padding: 60px 8vw 100px 48px;
+  padding: 60px 8vw 100px 8vw;
 }
 
 .content-wrap {
@@ -901,9 +858,7 @@ footer p, .page-num {
 
 /* ── Responsive ── */
 @media (max-width: 680px) {
-  :root { --sidebar-w: 0px; }
-  body::before, body::after, .spiral-holes { display: none; }
-  main { margin-left: 0; padding: 32px 24px 80px; }
+  main { padding: 32px 24px 80px; }
 
   /* index */
   .hero-photo-wrap { order: -1; width: 100%; display: flex; justify-content: center; }
@@ -917,5 +872,5 @@ footer p, .page-num {
 }
 
 @media (min-width: 681px) and (max-width: 1024px) {
-  main { padding: 52px 5vw 80px 40px; }
+  main { padding: 52px 5vw 80px 5vw; }
 }
