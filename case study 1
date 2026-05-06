@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complex Workflows — Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="spiral-holes" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<main>
+<div class="content-wrap">
+
+  <nav>
+    <a href="index.html" class="nav-logo">Your Name</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work" class="active">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <a href="index.html" class="back-link">← Back to all work</a>
+
+  <!-- ── Case Study Header ── -->
+  <header class="cs-header">
+    <div class="cs-tag-row">
+      <span class="cs-tag">Enterprise SaaS</span>
+      <span class="cs-year">2023</span>
+    </div>
+    <h1 class="cs-title">Understanding complex workflows at scale</h1>
+    <p class="cs-subtitle">
+      A 12-week ethnographic study mapping how operations teams coordinate cross-functional work — and why their existing tools were failing them silently.
+    </p>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Role</div>
+        <div class="cs-meta-value">Senior UX Researcher</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Duration</div>
+        <div class="cs-meta-value">12 weeks</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Methods</div>
+        <div class="cs-meta-value">Contextual inquiry · Diary study · Journey mapping · Stakeholder interviews</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Cover image ── -->
+  <!--
+    TO ADD A COVER IMAGE: replace the div below with:
+    <div class="cs-cover"><img src="your-cover.jpg" alt="Project cover" /></div>
+  -->
+  <div class="cs-cover">
+    <div class="cs-cover-placeholder">Add a cover image here</div>
+  </div>
+
+  <!-- ── Body ── -->
+  <div class="cs-body">
+
+    <h2>The problem</h2>
+    <p>
+      The client — a mid-market enterprise SaaS company — had built a task management platform used by operations teams at 200+ companies. Renewal rates were strong, but NPS had been declining for three consecutive quarters. Customer success calls kept surfacing vague complaints: <strong>"It doesn't really fit how we work."</strong>
+    </p>
+    <p>
+      No one could articulate what that meant precisely. My brief was to find out — not by asking users what they wanted, but by watching how they actually worked.
+    </p>
+
+    <div class="cs-pullquote">
+      <p>"The tool was being used — but it was being worked around just as much as it was being used."</p>
+    </div>
+
+    <h2>Research approach</h2>
+    <p>
+      I proposed an ethnographic approach: follow real ops teams in their natural environment over an extended period, rather than pulling them into labs. The client agreed to a 12-week study across three companies of different sizes.
+    </p>
+    <p>
+      Each participant completed a <strong>2-week diary study</strong> first, logging their work tasks, tools used, and moments of frustration in their own words. This primed the contextual inquiry sessions that followed — I arrived knowing what to look for.
+    </p>
+
+    <div class="cs-process">
+      <div class="cs-step">
+        <div class="cs-step-num">1</div>
+        <div class="cs-step-content">
+          <h3>Stakeholder landscape mapping</h3>
+          <p>Interviewed 8 internal stakeholders across product, CS, and sales to understand competing hypotheses. Documented assumptions to test.</p>
+        </div>
+      </div>
+      <div class="cs-step">
+        <div class="cs-step-num">2</div>
+        <div class="cs-step-content">
+          <h3>Participant recruitment</h3>
+          <p>Recruited 18 participants across 3 companies: 1 startup, 1 mid-size, 1 enterprise. Screened for ops-adjacent roles with daily product usage.</p>
+        </div>
+      </div>
+      <div class="cs-step">
+        <div class="cs-step-num">3</div>
+        <div class="cs-step-content">
+          <h3>Diary study (2 weeks)</h3>
+          <p>Participants logged tasks, tools, and friction moments daily via a lightweight form. Generated 340+ diary entries across the cohort.</p>
+        </div>
+      </div>
+      <div class="cs-step">
+        <div class="cs-step-num">4</div>
+        <div class="cs-step-content">
+          <h3>Contextual inquiry sessions</h3>
+          <p>16 x 90-minute sessions observing participants working live. I watched, asked "why" questions in the moment, and photographed workarounds with consent.</p>
+        </div>
+      </div>
+      <div class="cs-step">
+        <div class="cs-step-num">5</div>
+        <div class="cs-step-content">
+          <h3>Cross-team synthesis</h3>
+          <p>Two-day synthesis sprint with 4 team members. Built a full journey map covering 9 distinct workflow patterns. Identified 3 critical failure modes.</p>
+        </div>
+      </div>
+      <div class="cs-step">
+        <div class="cs-step-num">6</div>
+        <div class="cs-step-content">
+          <h3>Executive readout</h3>
+          <p>Presented findings to the C-suite with a narrative structure: what we believed, what we found, what it means for the roadmap.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Key insights</h2>
+    <p>
+      The diary study and contextual sessions painted a consistent picture. The product had been designed around individual task completion, but ops work is fundamentally about <strong>coordination and context</strong> — two things the tool didn't support well.
+    </p>
+
+    <div class="cs-insights">
+      <div class="cs-insight-card">
+        <div class="insight-num">01</div>
+        <h3>The shadow system problem</h3>
+        <p>Every team had a parallel "real" system running alongside the product — Slack threads, personal spreadsheets, sticky note walls. The tool captured tasks but not decisions.</p>
+      </div>
+      <div class="cs-insight-card">
+        <div class="insight-num">02</div>
+        <h3>Context collapse</h3>
+        <p>Tasks were logged without the reasoning behind them. When ownership changed hands, institutional knowledge was lost. People were completing tasks they didn't understand.</p>
+      </div>
+      <div class="cs-insight-card">
+        <div class="insight-num">03</div>
+        <h3>Status ≠ progress</h3>
+        <p>The tool showed task status well, but teams needed to communicate <em>momentum</em> — blockers, dependencies, and confidence levels — none of which had a home in the UI.</p>
+      </div>
+    </div>
+
+    <h2>Outcomes</h2>
+    <p>
+      Findings directly influenced the next two product planning cycles. Three new features were scoped from the research, and two existing features were deprioritised after the evidence showed they weren't addressing real pain points.
+    </p>
+
+    <div class="cs-outcomes">
+      <div class="cs-outcome">
+        <div class="outcome-stat">+18pt</div>
+        <p>NPS improvement in the cohort 6 months post-launch</p>
+      </div>
+      <div class="cs-outcome">
+        <div class="outcome-stat">3</div>
+        <p>New features scoped directly from research insights</p>
+      </div>
+      <div class="cs-outcome">
+        <div class="outcome-stat">92%</div>
+        <p>Of participants said the new context fields "described how we actually work"</p>
+      </div>
+    </div>
+
+    <h2>What I'd do differently</h2>
+    <p>
+      The diary study format asked too much of participants — the drop-off rate in week 2 was higher than I'd like. I'd redesign it as a voice-note based study next time: 60 seconds spoken is far lower friction than filling out a form at the end of a long day.
+    </p>
+    <p>
+      I'd also push harder for access to the enterprise client earlier. We got the richest signal from their team, but recruitment took 4 weeks due to procurement. Building that relationship before the study starts is worth the upfront effort.
+    </p>
+
+  </div><!-- /cs-body -->
+
+  <!-- ── Next / Prev ── -->
+  <div class="cs-nav">
+    <a href="case-study-onboarding.html" class="cs-nav-link prev">
+      <span>←</span> Previous case study
+    </a>
+    <a href="case-study-accessibility.html" class="cs-nav-link next">
+      Next case study <span>→</span>
+    </a>
+  </div>
+
+  <footer>
+    <p>Made with graph paper &amp; good intentions.</p>
+    <span class="page-num">p. 03</span>
+  </footer>
+
+</div><!-- /content-wrap -->
+</main>
+
+</body>
+</html>
