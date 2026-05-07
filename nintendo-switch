@@ -3,15 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Complex Workflows — Your Name</title>
+  <title>Nintendo Switch Usability Study</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="spiral-holes" aria-hidden="true">
-  <span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span>
-</div>
 
 <main>
 <div class="content-wrap">
@@ -30,29 +25,9 @@
   <!-- ── Case Study Header ── -->
   <header class="cs-header">
     <div class="cs-tag-row">
-      <span class="cs-tag">Enterprise SaaS</span>
-      <span class="cs-year">2023</span>
+      <span class="cs-tag">Hardware Usability Test</span>
     </div>
-    <h1 class="cs-title">Understanding complex workflows at scale</h1>
-    <p class="cs-subtitle">
-      A 12-week ethnographic study mapping how operations teams coordinate cross-functional work — and why their existing tools were failing them silently.
-    </p>
-    <div class="cs-meta">
-      <div class="cs-meta-item">
-        <div class="cs-meta-label">Role</div>
-        <div class="cs-meta-value">Senior UX Researcher</div>
-      </div>
-      <div class="cs-meta-item">
-        <div class="cs-meta-label">Duration</div>
-        <div class="cs-meta-value">12 weeks</div>
-      </div>
-      <div class="cs-meta-item">
-        <div class="cs-meta-label">Methods</div>
-        <div class="cs-meta-value">Contextual inquiry · Diary study · Journey mapping · Stakeholder interviews</div>
-      </div>
-    </div>
-  </header>
-
+    <h1 class="cs-title">Hardware Usability Test</h1>
   <!-- ── Cover image ── -->
   <!--
     TO ADD A COVER IMAGE: replace the div below with:
@@ -61,36 +36,81 @@
   <div class="cs-cover">
     <div class="cs-cover-placeholder">Add a cover image here</div>
   </div>
+    <p class="cs-subtitle">
+      Designed a study protocol and conducted usability tests to uncover usability issues and redesign recommendations on the Nintendo Switch
+    </p>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Role</div>
+        <div class="cs-meta-value">UX Researcher</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Team</div>
+        <div class="cs-meta-value">6 UX researchers</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Duration</div>
+        <div class="cs-meta-value">3 months (Mar 2025 - May 2025)</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Process</div>
+        <div class="cs-meta-value">User Research · Study Design · Test Questionnaire · Data Collection & Analysis · Insight Synthesis</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Tools</div>
+        <div class="cs-meta-value">Nintendo Switch · Camera</div>
+      </div>
+    </div>
+  </header>
 
   <!-- ── Body ── -->
   <div class="cs-body">
 
     <h2>The problem</h2>
     <p>
-      The client — a mid-market enterprise SaaS company — had built a task management platform used by operations teams at 200+ companies. Renewal rates were strong, but NPS had been declining for three consecutive quarters. Customer success calls kept surfacing vague complaints: <strong>"It doesn't really fit how we work."</strong>
+      Bridge the gap between Nintendo's goals and what users are experiencing by conducting usability tests to collect and synthesize insights for design recommendations.
     </p>
     <p>
-      No one could articulate what that meant precisely. My brief was to find out — not by asking users what they wanted, but by watching how they actually worked.
+      <strong>Nintendo's Goals</strong> 
+    </p>
+    <p>
+      An intuitive and easily usable console for players of <strong>all ages and experience levels</strong>. Design of the hardware(touchscreen, Joy-Con configurations, and the dock) offers flexible and multiple forms of gaming experience.
     </p>
 
-    <div class="cs-pullquote">
-      <p>"The tool was being used — but it was being worked around just as much as it was being used."</p>
-    </div>
-
-    <h2>Research approach</h2>
+    <h2>Impacts & Outcomes</h2>
+    <h3>Research</h3>
     <p>
-      I proposed an ethnographic approach: follow real ops teams in their natural environment over an extended period, rather than pulling them into labs. The client agreed to a 12-week study across three companies of different sizes.
+      · Conducted usability testing with 6 participants across 3 user groups (novice, experienced, parent) to evaluate first-time setup, controller pairing, and parental controls, uncovering critical interaction breakdowns.
+      · Synthesized 10+ usability issues into 4 high-priority themes, revealing that unclear system feedback and inconsistent instructions significantly increased cognitive load for novice and parent users.
+      · Measured task completion, error rates, time-on-task, and post-task satisfaction across task interactions, identifying where learnability and clarity failed.    
     </p>
+    <h3>Design</h3>
     <p>
-      Each participant completed a <strong>2-week diary study</strong> first, logging their work tasks, tools used, and moments of frustration in their own words. This primed the contextual inquiry sessions that followed — I arrived knowing what to look for.
+      · Translated findings into 6+ prioritized, actionable design recommendations, including clearer onboarding cues, improved feedback states, and simplified parental control flows.
     </p>
 
     <div class="cs-process">
       <div class="cs-step">
         <div class="cs-step-num">1</div>
         <div class="cs-step-content">
-          <h3>Stakeholder landscape mapping</h3>
-          <p>Interviewed 8 internal stakeholders across product, CS, and sales to understand competing hypotheses. Documented assumptions to test.</p>
+          <h3>Dimensions of Interest</h3>
+          <p>
+          Based on user goals and Nintendo's core values, my team evaluated the Switch across seven key dimensions of interest. These served as our framework for testing and analysis:
+
+          <strong>Social Connectivity:</strong> We assessed the console's ability to foster community and shared gaming experiences.
+          
+          <strong>Accessibility:</strong> We evaluated its usability for a broad range of users, considering cognitive, physical, and visual needs.
+          
+          <strong>Entertainment & Satisfaction:</strong> We measured how well the console delivers an enjoyable and engaging experience, from gameplay to content richness.
+          
+          <strong>Environmental Sustainability:</strong> This dimension focused on the Switch's alignment with environmentally responsible use across its lifecycle.
+          
+          <strong>Safety:</strong> We looked at features like parental controls and privacy settings that protect users from online risks.
+          
+          <strong>Learnability:</strong> We assessed how quickly and efficiently new users could understand and begin using the console.
+          
+          <strong>Customization:</strong> We evaluated the extent to which users can personalize their gaming experience to their unique preferences.
+          </p>
         </div>
       </div>
       <div class="cs-step">
