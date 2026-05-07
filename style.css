@@ -570,6 +570,7 @@ footer p, .page-num {
 
 .cs-tag.alt {
   background: var(--sage-light);
+  margin-bottom: 4px;
 }
 
 .cs-year {
