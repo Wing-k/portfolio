@@ -443,6 +443,19 @@ h1 .highlight::after {
 .method-tag:hover { transform: rotate(-1.5deg) translateY(-2px); background: var(--sage-pale); }
 .method-tag:nth-child(even):hover { transform: rotate(1.5deg) translateY(-2px); background: var(--blush-pale); }
 
+.method-tag.with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.method-tag.with-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 /* ── About ── */
 .about-inner {
   display: flex;
