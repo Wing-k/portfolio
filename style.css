@@ -445,16 +445,30 @@ h1 .highlight::after {
 
 .method-tag.with-icon {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-mid);
+  width: 72px;
+  text-align: center;
+}
+
+.method-tag.with-icon:hover {
+  transform: translateY(-3px);
+  background: none;
 }
 
 .method-tag.with-icon img {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
+
 
 /* ── About ── */
 .about-inner {
