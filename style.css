@@ -572,35 +572,28 @@ footer p, .page-num {
 
 .back-link:hover { color: var(--ink); gap: 10px; }
 
-/* Case study header — cover image as background */
+/* Case study header — clean, no box or background */
 .cs-header {
-  margin-bottom: 52px;
-  padding: 52px 48px 36px;
-  border-radius: 10px;
-  border: 1.5px solid var(--ink);
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--sage-pale) 40%, var(--blush-pale) 100%);
+  margin-bottom: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  position: static;
+  overflow: visible;
 }
 
-/* When a real cover image is set via inline style or a bg class */
+/* has-cover class kept for legacy but no longer needed */
 .cs-header.has-cover {
-  background-size: cover;
-  background-position: center;
+  background: none;
 }
 
-/* Dark overlay so text stays readable over a photo */
 .cs-header.has-cover::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(250, 249, 246, 0.82);
-  z-index: 0;
+  display: none;
 }
 
 .cs-header > * {
-  position: relative;
-  z-index: 1;
+  position: static;
+  z-index: auto;
 }
 
 .cs-tag-row {
@@ -645,35 +638,88 @@ footer p, .page-num {
   line-height: 1.75;
   color: var(--ink-mid);
   font-weight: 300;
+  margin-bottom: 0;
 }
 
-/* Meta strip */
+/* Cover image — full width, sits between subtitle and meta strip */
+.cs-cover-img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  border: 1.5px solid var(--ink);
+  margin: 28px 0 0;
+  box-shadow: 4px 4px 0 var(--sage-light);
+}
+
+/* Placeholder shown when no image is supplied yet */
+.cs-cover-img-placeholder {
+  width: 100%;
+  height: 340px;
+  border-radius: 8px;
+  border: 1.5px dashed var(--ink-light);
+  margin: 28px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--sage-pale) 40%, var(--blush-pale) 100%);
+  color: var(--ink-light);
+  font-size: 14px;
+  font-weight: 300;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.cs-cover-img-placeholder::before {
+  content: '⬭';
+  font-size: 44px;
+  opacity: 0.3;
+}
+
+/* Meta strip — 1 row, Caveat font, smaller, no border-top on container */
 .cs-meta {
   display: flex;
-  gap: 32px;
+  flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--sage-light);
+  gap: 0;
+  margin-top: 0;
+  padding: 20px 0;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px dashed var(--sage);
+  margin-bottom: 52px;
   justify-content: space-between;
 }
 
-.cs-meta-item {}
+.cs-meta-item {
+  padding: 0 24px 0 0;
+}
+
+.cs-meta-item:last-child {
+  padding-right: 0;
+}
 
 .cs-meta-label {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-light);
   margin-bottom: 4px;
 }
 
 .cs-meta-value {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  font-weight: 600;
   color: var(--ink);
+  line-height: 1.4;
+}
+
+.cs-meta-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 /* Hero image area */
