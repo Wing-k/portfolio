@@ -1,6 +1,6 @@
 /* ============================================================
    style.css — UX Researcher Portfolio
-   Shared across home.html and case-study.html
+   Shared across index.html and case-study.html
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
@@ -33,83 +33,6 @@ body {
   min-height: 100vh;
 }
 
-/* Bullet lists inside cs-body */
-.cs-body ul {
-  margin: 0 0 16px 0;
-  padding-left: 20px;
-  list-style: none;
-}
-
-.cs-body ul li {
-  font-size: 16px;
-  line-height: 1.85;
-  color: var(--ink-mid);
-  font-weight: 300;
-  margin-bottom: 8px;
-  padding-left: 4px;
-  position: relative;
-}
-
-.cs-body ul li::before {
-  content: '–';
-  position: absolute;
-  left: -16px;
-  color: var(--sage);
-}
-
-.cs-body ul li strong { font-weight: 500; color: var(--ink); }
-
-/* Sub-section label (e.g. Script-Based, UI-Based) */
-.cs-finding-group {
-  margin: 32px 0 8px;
-  font-family: 'Caveat', cursive;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.cs-finding-group::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--sage-light);
-}
-
-/* Images inside case study body */
-.cs-image {
-  width: 100%;
-  border-radius: 8px;
-  border: 1.5px solid var(--ink);
-  display: block;
-  margin: 24px 0;
-  object-fit: cover;
-}
-
-.cs-image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin: 24px 0;
-}
-
-.cs-image-grid img {
-  width: 100%;
-  border-radius: 8px;
-  border: 1.5px solid var(--ink);
-  display: block;
-  object-fit: cover;
-}
-
-/* Tasks meta list */
-.cs-meta-tasks {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
 /* ── Spiral holes (hidden) ── */
 .spiral-holes { display: none; }
 
@@ -130,7 +53,7 @@ nav {
   align-items: baseline;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 64px;
+  margin-bottom: 36px;
   padding-bottom: 16px;
   border-bottom: 1.5px dashed var(--sage);
 }
@@ -152,7 +75,7 @@ nav {
 
 .nav-links a {
   font-family: 'Caveat', cursive;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--ink-mid);
   text-decoration: none;
   position: relative;
@@ -187,7 +110,7 @@ section { margin-bottom: 68px; }
 
 .section-label h2 {
   font-family: 'Caveat', cursive;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--ink);
   white-space: nowrap;
@@ -335,12 +258,12 @@ section { margin-bottom: 68px; }
 }
 
 /* ── Hero (index only) ── */
-.hero { margin-bottom: 80px; }
+.hero { margin-bottom: 48px; }
 
 .hero-inner {
   display: flex;
   align-items: flex-start;
-  gap: 40px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
@@ -476,14 +399,14 @@ h1 .highlight::after {
 
 .case-card h3 {
   font-family: 'Caveat', cursive;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.25;
   margin-bottom: 8px;
 }
 
 .case-card p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink-mid);
   line-height: 1.65;
   font-weight: 300;
@@ -492,7 +415,7 @@ h1 .highlight::after {
 .case-arrow {
   margin-top: 12px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--ink-light);
   display: flex;
@@ -524,15 +447,19 @@ h1 .highlight::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 0;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
   border: none;
   background: none;
-  font-size: 13px;
+  border-radius: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
   font-weight: 400;
   color: var(--ink-mid);
-  width: 72px;
+  width: 88px;
   text-align: center;
+  cursor: default;
 }
 
 .method-tag.with-icon:hover {
@@ -541,11 +468,11 @@ h1 .highlight::after {
 }
 
 .method-tag.with-icon img {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
+  display: block;
 }
-
 
 /* ── About ── */
 .about-inner {
@@ -645,11 +572,35 @@ footer p, .page-num {
 
 .back-link:hover { color: var(--ink); gap: 10px; }
 
-/* Case study header */
+/* Case study header — cover image as background */
 .cs-header {
   margin-bottom: 52px;
-  padding-bottom: 36px;
-  border-bottom: 1.5px dashed var(--sage);
+  padding: 52px 48px 36px;
+  border-radius: 10px;
+  border: 1.5px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--sage-pale) 40%, var(--blush-pale) 100%);
+}
+
+/* When a real cover image is set via inline style or a bg class */
+.cs-header.has-cover {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark overlay so text stays readable over a photo */
+.cs-header.has-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 249, 246, 0.82);
+  z-index: 0;
+}
+
+.cs-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .cs-tag-row {
@@ -672,19 +623,17 @@ footer p, .page-num {
   border-radius: 20px;
 }
 
-.cs-tag.alt {
-  background: var(--sage-light);
-}
-
 .cs-year {
-  font-family: 'Caveat', cursive;
-  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
   color: var(--ink-light);
+  letter-spacing: 0.03em;
 }
 
 .cs-title {
   font-family: 'Caveat', cursive;
-  font-size: clamp(36px, 4.5vw, 56px);
+  font-size: clamp(40px, 5vw, 60px);
   font-weight: 700;
   line-height: 1.15;
   color: var(--ink);
@@ -712,7 +661,7 @@ footer p, .page-num {
 .cs-meta-item {}
 
 .cs-meta-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -721,8 +670,9 @@ footer p, .page-num {
 }
 
 .cs-meta-value {
-  font-family: 'Caveat', cursive;
+  font-family: 'DM Sans', sans-serif;
   font-size: 18px;
+  font-weight: 400;
   color: var(--ink);
 }
 
@@ -803,7 +753,7 @@ footer p, .page-num {
 
 .cs-pullquote p {
   font-family: 'Caveat', cursive;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   color: var(--ink);
   line-height: 1.4;
@@ -838,14 +788,14 @@ footer p, .page-num {
 
 .cs-insight-card h3 {
   font-family: 'Caveat', cursive;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 6px;
 }
 
 .cs-insight-card p {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-mid);
   font-weight: 300;
@@ -900,14 +850,14 @@ footer p, .page-num {
 
 .cs-step-content h3 {
   font-family: 'Caveat', cursive;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 6px;
 }
 
 .cs-step-content p {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--ink-mid);
   font-weight: 300;
@@ -940,7 +890,7 @@ footer p, .page-num {
 }
 
 .cs-outcome p {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--ink-mid);
   font-weight: 300;
   line-height: 1.5;
@@ -974,6 +924,83 @@ footer p, .page-num {
 .cs-nav-link.prev:hover { gap: 12px; }
 .cs-nav-link.next:hover { gap: 12px; }
 
+/* Bullet lists inside cs-body */
+.cs-body ul {
+  margin: 0 0 16px 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.cs-body ul li {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--ink-mid);
+  font-weight: 300;
+  margin-bottom: 8px;
+  padding-left: 4px;
+  position: relative;
+}
+
+.cs-body ul li::before {
+  content: '–';
+  position: absolute;
+  left: -16px;
+  color: var(--sage);
+}
+
+.cs-body ul li strong { font-weight: 500; color: var(--ink); }
+
+/* Sub-section label (e.g. Script-Based, UI-Based) */
+.cs-finding-group {
+  margin: 32px 0 8px;
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-finding-group::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--sage-light);
+}
+
+/* Images inside case study body */
+.cs-image {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid var(--ink);
+  display: block;
+  margin: 24px 0;
+  object-fit: cover;
+}
+
+.cs-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.cs-image-grid img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid var(--ink);
+  display: block;
+  object-fit: cover;
+}
+
+/* Tasks meta list */
+.cs-meta-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 680px) {
   main { padding: 32px 24px 80px; }
@@ -986,7 +1013,9 @@ footer p, .page-num {
 
   /* case study */
   .cs-cover { height: 200px; }
-  
+  .cs-meta { gap: 20px; }
+}
+
 @media (min-width: 681px) and (max-width: 1024px) {
   main { padding: 52px 5vw 80px 5vw; }
 }
