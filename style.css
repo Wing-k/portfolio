@@ -674,7 +674,6 @@ footer p, .page-num {
 
 .cs-tag.alt {
   background: var(--sage-light);
-  margin-bottom: 8px;
 }
 
 .cs-year {
@@ -707,6 +706,7 @@ footer p, .page-num {
   margin-top: 28px;
   padding-top: 24px;
   border-top: 1px solid var(--sage-light);
+  justify-content: space-between;
 }
 
 .cs-meta-item {}
