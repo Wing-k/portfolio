@@ -263,7 +263,7 @@ section { margin-bottom: 68px; }
 .hero-inner {
   display: flex;
   align-items: flex-start;
-  gap: 24px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -285,7 +285,7 @@ section { margin-bottom: 68px; }
   color: var(--ink-mid);
   padding: 4px 14px;
   border-radius: 20px;
-  transform: rotate(-1deg);
+  transform: rotate(1.5deg);
 }
 
 h1 {
