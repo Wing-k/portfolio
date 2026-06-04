@@ -269,6 +269,14 @@ section { margin-bottom: 68px; }
 
 .hero-text { flex: 1; min-width: 260px; }
 
+.hero-photo-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
 .hero-tag {
   display: inline-block;
   font-family: 'Caveat', cursive;
@@ -277,7 +285,6 @@ section { margin-bottom: 68px; }
   color: var(--ink-mid);
   padding: 4px 14px;
   border-radius: 20px;
-  margin-bottom: 20px;
   transform: rotate(-1deg);
 }
 
@@ -321,6 +328,73 @@ h1 .highlight::after {
   gap: 16px;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.cs-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  margin-bottom: 0;
+}
+
+.cs-header-text { flex: 1; min-width: 0; }
+
+.cs-sticky {
+  flex-shrink: 0;
+  width: 160px;
+  position: relative;
+  margin-top: 8px;
+}
+
+.cs-sticky img,
+.cs-sticky-placeholder {
+  width: 160px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.cs-sticky img {
+  box-shadow: 3px 3px 10px rgba(44,44,40,0.15);
+  transform: rotate(2deg);
+}
+
+.cs-sticky::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 56px;
+  height: 18px;
+  background: rgba(229, 200, 184, 0.7);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.cs-sticky-placeholder {
+  background: linear-gradient(135deg, var(--sage-pale), var(--blush-pale));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-light);
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+  padding: 12px;
+  box-shadow: 3px 3px 10px rgba(44,44,40,0.1);
+  transform: rotate(2deg);
+}
+
+.cs-sticky.alt img,
+.cs-sticky.alt .cs-sticky-placeholder {
+  transform: rotate(-1.5deg);
+}
+
+.cs-sticky.alt::before {
+  transform: translateX(-50%) rotate(1deg);
+  background: rgba(181, 201, 183, 0.7);
 }
 
 /* ── Case study cards (index grid) ── */
