@@ -328,49 +328,32 @@ h1 .highlight::after {
   gap: 16px;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.cs-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 28px;
+}.cs-header {
+  position: relative;
   margin-bottom: 0;
 }
 
-.cs-header-text { flex: 1; min-width: 0; }
+.cs-header-text {
+  width: 100%;
+}
 
 .cs-sticky {
-  flex-shrink: 0;
-  width: 160px;
-  position: relative;
-  margin-top: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  pointer-events: none;
 }
 
 .cs-sticky img,
 .cs-sticky-placeholder {
-  width: 160px;
-  height: 140px;
+  width: 140px;
+  height: 120px;
   object-fit: cover;
   border-radius: 4px;
   display: block;
-}
-
-.cs-sticky img {
   box-shadow: 3px 3px 10px rgba(44,44,40,0.15);
   transform: rotate(2deg);
-}
-
-.cs-sticky::before {
-  content: '';
-  position: absolute;
-  top: -9px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-1.5deg);
-  width: 56px;
-  height: 18px;
-  background: rgba(229, 200, 184, 0.7);
-  border-radius: 2px;
-  z-index: 2;
 }
 
 .cs-sticky-placeholder {
@@ -379,12 +362,23 @@ h1 .highlight::after {
   align-items: center;
   justify-content: center;
   color: var(--ink-light);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   text-align: center;
-  padding: 12px;
-  box-shadow: 3px 3px 10px rgba(44,44,40,0.1);
-  transform: rotate(2deg);
+  padding: 10px;
+}
+
+.cs-sticky::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 52px;
+  height: 16px;
+  background: rgba(229, 200, 184, 0.7);
+  border-radius: 2px;
+  z-index: 2;
 }
 
 .cs-sticky.alt img,
@@ -396,6 +390,7 @@ h1 .highlight::after {
   transform: translateX(-50%) rotate(1deg);
   background: rgba(181, 201, 183, 0.7);
 }
+
 
 /* ── Case study cards (index grid) ── */
 .case-grid {
@@ -705,6 +700,7 @@ footer p, .page-num {
   line-height: 1.15;
   color: var(--ink);
   margin-bottom: 18px;
+  padding-right: 160px;
 }
 
 .cs-subtitle {
@@ -1132,6 +1128,8 @@ footer p, .page-num {
   /* case study */
   .cs-cover { height: 200px; }
   .cs-meta { gap: 20px; }
+  .cs-sticky { display: none; }
+  .cs-title { padding-right: 0; }
 }
 
 @media (min-width: 681px) and (max-width: 1024px) {
