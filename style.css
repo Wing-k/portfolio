@@ -328,27 +328,26 @@ h1 .highlight::after {
   gap: 16px;
   align-items: center;
   flex-wrap: wrap;
-}.cs-header {
-  position: relative;
-  margin-bottom: 0;
 }
 
-.cs-header-text {
-  width: 100%;
+.cs-header {
+  position: relative;
+  margin-bottom: 0;
+  padding-right: 170px;
 }
 
 .cs-sticky {
   position: absolute;
   top: 0;
   right: 0;
-  width: 140px;
+  width: 150px;
   pointer-events: none;
 }
 
 .cs-sticky img,
 .cs-sticky-placeholder {
-  width: 140px;
-  height: 120px;
+  width: 150px;
+  height: 130px;
   object-fit: cover;
   border-radius: 4px;
   display: block;
@@ -390,7 +389,6 @@ h1 .highlight::after {
   transform: translateX(-50%) rotate(1deg);
   background: rgba(181, 201, 183, 0.7);
 }
-
 
 /* ── Case study cards (index grid) ── */
 .case-grid {
@@ -1128,8 +1126,8 @@ footer p, .page-num {
   /* case study */
   .cs-cover { height: 200px; }
   .cs-meta { gap: 20px; }
+  .cs-header { padding-right: 0; }
   .cs-sticky { display: none; }
-  .cs-title { padding-right: 0; }
 }
 
 @media (min-width: 681px) and (max-width: 1024px) {
