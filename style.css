@@ -994,7 +994,7 @@ footer p, .page-num {
 
 .cs-outcome {
   background: var(--sage-pale);
-  border: 1.5px solid var(--sage);
+  border: solid var(--sage);
   border-radius: 8px;
   padding: 18px 20px;
   text-align: center;
@@ -1093,7 +1093,6 @@ footer p, .page-num {
 .cs-image {
   width: 100%;
   border-radius: 8px;
-  border: 1.5px solid var(--ink);
   display: block;
   margin: 24px 0;
   object-fit: cover;
@@ -1109,7 +1108,6 @@ footer p, .page-num {
 .cs-image-grid img {
   width: 100%;
   border-radius: 8px;
-  border: 1.5px solid var(--ink);
   display: block;
   object-fit: cover;
 }
