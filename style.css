@@ -58,6 +58,12 @@ nav {
   border-bottom: 1.5px dashed var(--sage);
 }
 
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
 .nav-logo {
   font-family: 'Caveat', cursive;
   font-size: 26px;
@@ -880,21 +886,12 @@ h1 .highlight::after {
 }
 
 .case-card-thumb {
-  height: 130px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  border-radius: 6px 6px 0 0;
-}
-
-.case-card-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
   border-radius: 6px 6px 0 0;
 }
 
