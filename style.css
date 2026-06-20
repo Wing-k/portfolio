@@ -269,11 +269,11 @@ section { margin-bottom: 68px; }
 .hero-inner {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 32px;
   flex-wrap: wrap;
 }
 
-.hero-text { flex: 1; min-width: 260px; }
+.hero-text { flex: 1; min-width: 260px; max-width: 520px; }
 
 .hero-photo-wrap {
   flex-shrink: 0;
