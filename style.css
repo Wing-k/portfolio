@@ -274,7 +274,9 @@ section { margin-bottom: 68px; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+  align-self: flex-start;
+  margin-top: 8px;
 }
 
 .hero-tag {
@@ -331,9 +333,7 @@ h1 .highlight::after {
 }
 
 /* ══════════════════════════════════════════
-   CASE STUDY HEADER
-   sticky note sits inline next to the tag row
-   — no more absolute positioning
+   CASE STUDY HEADER — simple block, no sticky note
    ══════════════════════════════════════════ */
 .cs-header {
   margin-bottom: 0;
@@ -344,7 +344,11 @@ h1 .highlight::after {
   overflow: visible;
 }
 
-/* Row that holds tags + year + sticky note side by side */
+.cs-header-text {
+  /* just a pass-through wrapper */
+}
+
+/* Tag row */
 .cs-tag-row {
   display: flex;
   align-items: center;
@@ -353,68 +357,10 @@ h1 .highlight::after {
   flex-wrap: wrap;
 }
 
-/* The sticky note image — inline, right after the date */
-.cs-sticky {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  /* remove all absolute/float behaviour */
-  position: static;
-  width: auto;
-  pointer-events: auto;
-  /* keep the slight tilt charm */
-  margin-left: 8px;
-}
-
-.cs-sticky img,
+/* sticky note — hidden everywhere */
+.cs-sticky,
 .cs-sticky-placeholder {
-  width: 110px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 4px;
-  display: block;
-  box-shadow: 3px 3px 8px rgba(44,44,40,0.13);
-  transform: rotate(2deg);
-}
-
-.cs-sticky-placeholder {
-  background: linear-gradient(135deg, var(--sage-pale), var(--blush-pale));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-light);
-  font-size: 11px;
-  font-weight: 300;
-  text-align: center;
-  padding: 10px;
-}
-
-/* ── Tape on sticky note (only when image is present, via .has-tape modifier) ── */
-.cs-sticky.has-tape img,
-.cs-sticky.has-tape .cs-sticky-placeholder {
-  /* leave room for tape above */
-  margin-top: 12px;
-  position: relative;
-}
-
-.cs-sticky.has-tape::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) rotate(-1.5deg);
-  width: 44px;
-  height: 14px;
-  background: rgba(229, 200, 184, 0.7);
-  border-radius: 2px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* alt variant (Blossom) — slight counter-rotation */
-.cs-sticky.alt img,
-.cs-sticky.alt .cs-sticky-placeholder {
-  transform: rotate(-1.5deg);
+  display: none !important;
 }
 
 /* Title — no right-padding needed any more */
@@ -580,6 +526,13 @@ h1 .highlight::after {
   content: '⬭';
   font-size: 52px;
   opacity: 0.3;
+}
+
+/* Dotted divider between Impacts & Outcomes and Process */
+.cs-process-divider {
+  border: none;
+  border-top: 1.5px dashed var(--sage);
+  margin: 48px 0 0;
 }
 
 /* Content sections */
@@ -1008,9 +961,9 @@ h1 .highlight::after {
   border: none;
   background: none;
   border-radius: 0;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  font-weight: 600;
   color: var(--ink-mid);
   width: 88px;
   text-align: center;
@@ -1137,7 +1090,9 @@ footer p, .page-num {
   .cs-cover { height: 200px; }
   .cs-meta { gap: 20px; }
   .cs-tag-row { flex-wrap: wrap; }
-  .cs-sticky { margin-left: 0; }
+  /* Stack header on mobile: sticky note goes below title */
+  .cs-header { flex-direction: column; gap: 16px; }
+  .cs-sticky { align-self: flex-start; }
 
   /* Raccoon grid collapses gracefully on mobile */
   .cs-insights.raccoon-features {
