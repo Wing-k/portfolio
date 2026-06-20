@@ -449,7 +449,7 @@ h1 .highlight::after {
   gap: 0;
   margin-top: 0;
   padding: 20px 0;
-  border-top: 1.5px solid var(--ink);
+  border-top: 1.5px dashed var(--sage);
   border-bottom: 1.5px dashed var(--sage);
   margin-bottom: 52px;
   justify-content: space-between;
@@ -889,7 +889,7 @@ h1 .highlight::after {
 
 .case-card-body {
   padding: 14px 16px 18px;
-  border-top: 1.5px solid var(--ink);
+  border-top: 1.5px dashed var(--sage);
 }
 
 .case-tag {
