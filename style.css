@@ -273,7 +273,7 @@ section { margin-bottom: 68px; }
   flex-wrap: wrap;
 }
 
-.hero-text { flex: 1; min-width: 260px; max-width: 520px; }
+.hero-text { flex: 1; min-width: 260px; max-width: 590px; }
 
 .hero-photo-wrap {
   flex-shrink: 0;
