@@ -528,11 +528,32 @@ h1 .highlight::after {
   opacity: 0.3;
 }
 
-/* Dotted divider between Impacts & Outcomes and Process */
+/* Dotted divider between Impacts & Outcomes and Process —
+   matches the home page "Case Studies ------" section label */
 .cs-process-divider {
-  border: none;
-  border-top: 1.5px dashed var(--sage);
-  margin: 48px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 48px 0 28px;
+}
+
+.cs-process-divider span {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.cs-process-divider::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--ink-light) 0, var(--ink-light) 4px,
+    transparent 4px, transparent 8px
+  );
 }
 
 /* Content sections */
