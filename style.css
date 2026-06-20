@@ -889,6 +889,15 @@ h1 .highlight::after {
   border-radius: 6px 6px 0 0;
 }
 
+.case-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 6px 6px 0 0;
+}
+
 .thumb-sage  { background: var(--sage-light); }
 .thumb-blush { background: var(--blush-light); }
 .thumb-mixed { background: linear-gradient(135deg, var(--sage-pale) 50%, var(--blush-pale) 50%); }
