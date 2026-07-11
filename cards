@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Understanding — Wing</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #gate {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gate-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      max-width: 340px;
+      width: 100%;
+    }
+    .gate-lock { font-size: 40px; line-height: 1; }
+    .gate-title { font-family: 'Caveat', cursive; font-size: 28px; font-weight: 700; color: var(--ink); }
+    .gate-note { font-size: 15px; color: var(--ink-light); font-weight: 300; line-height: 1.6; }
+    .gate-input-row {
+      display: flex; width: 100%;
+      border: 1.5px solid var(--ink); border-radius: 6px;
+      overflow: hidden; box-shadow: 3px 3px 0 var(--ink);
+    }
+    .gate-input {
+      flex: 1; padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 15px;
+      border: none; outline: none; background: var(--paper); color: var(--ink);
+    }
+    .gate-input::placeholder { color: var(--ink-light); }
+    .gate-btn {
+      padding: 12px 20px; background: var(--sage); color: var(--ink);
+      border: none; border-left: 1.5px solid var(--ink);
+      font-family: 'Caveat', cursive; font-size: 18px; font-weight: 700;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .gate-btn:hover { background: var(--sage-light); }
+    .gate-error { font-family: 'Caveat', cursive; font-size: 17px; color: #b85c5c; display: none; }
+    .gate-error.show { display: block; }
+    #protected { display: none; }
+    #protected.unlocked { display: block; }
+
+    /* Card type grid */
+    .card-type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 24px 0 36px;
+    }
+    .card-type {
+      background: var(--paper-warm);
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      padding: 18px 18px 20px;
+      box-shadow: 3px 3px 0 var(--sage-light);
+    }
+    .card-type h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 20px; font-weight: 700; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .card-type .card-tag {
+      display: inline-block; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: var(--blush-light); color: var(--ink-mid);
+      padding: 2px 8px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .card-type ul { list-style: none; padding: 0; margin: 0; }
+    .card-type ul li {
+      font-size: 13px; line-height: 1.6; color: var(--ink-mid);
+      font-weight: 300; margin-bottom: 4px;
+      padding-left: 12px; position: relative;
+    }
+    .card-type ul li::before { content: '–'; position: absolute; left: 0; color: var(--sage); }
+    .card-type ul li strong { font-weight: 500; color: var(--ink); }
+
+    /* Card comparison two-col */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 20px 0 32px;
+    }
+    .two-col-card {
+      background: var(--sage-pale);
+      border: 1.5px solid var(--sage);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .two-col-card h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 10px;
+    }
+    .two-col-card ul { list-style: none; padding: 0; margin: 0; }
+    .two-col-card ul li {
+      font-size: 14px; line-height: 1.65; color: var(--ink-mid);
+      font-weight: 300; margin-bottom: 5px;
+      padding-left: 14px; position: relative;
+    }
+    .two-col-card ul li::before { content: '–'; position: absolute; left: 0; color: var(--sage); }
+    .two-col-card ul li strong { font-weight: 500; color: var(--ink); }
+
+    /* Perception cards */
+    .perception-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 20px 0 32px;
+    }
+    .perception-card {
+      background: var(--blush-pale);
+      border: 1.5px solid var(--blush);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .perception-card h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 6px;
+    }
+    .perception-card p {
+      font-size: 14px; line-height: 1.65; color: var(--ink-mid); font-weight: 300; margin: 0;
+    }
+
+    @media (max-width: 680px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="spiral-holes" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<main>
+<div class="content-wrap">
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="Images/logo.png" alt="Wing" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PASSWORD GATE ── -->
+  <div id="gate">
+    <div class="gate-box">
+      <div class="gate-lock">🔒</div>
+      <p class="gate-title">This work is protected</p>
+      <p class="gate-note">This case study contains confidential work from my current role. Enter the password to view.</p>
+      <div class="gate-input-row">
+        <input type="password" class="gate-input" id="gate-input"
+          placeholder="Enter password" autocomplete="off" />
+        <button class="gate-btn" onclick="checkPassword()">Enter</button>
+      </div>
+      <p class="gate-error" id="gate-error">Incorrect password. Try again.</p>
+      <p class="gate-note" style="font-size:13px;">
+        Don't have it? <a href="mailto:wingkoon0718@gmail.com" style="color:var(--ink);border-bottom:1px dashed var(--ink-light);">Email me</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ── PROTECTED CONTENT ── -->
+  <div id="protected">
+
+    <a href="index.html" class="back-link">← Back to all work</a>
+
+    <header class="cs-header">
+      <div class="cs-header-text">
+        <div class="cs-tag-row">
+          <span class="cs-tag">Market Research</span>
+          <span class="cs-tag alt">Payment · E-Commerce</span>
+          <span class="cs-year">Current role · 2026</span>
+        </div>
+        <h1 class="cs-title">Card Understanding — US Market</h1>
+        <p class="cs-subtitle">
+          A comprehensive market research study on the US card landscape — covering credit, debit, co-branded, store, and gift cards. Mapped card types, user motivations, demographics, and business implications to inform product strategy in the payment space.
+        </p>
+      </div>
+    </header>
+
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Role</div>
+        <div class="cs-meta-value">UX Researcher</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Context</div>
+        <div class="cs-meta-value">Current employer</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Scope</div>
+        <div class="cs-meta-value">6 card types · US market</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Tasks</div>
+        <div class="cs-meta-value cs-meta-tasks">
+          <span>Market Research</span>
+          <span>Competitive Analysis</span>
+          <span>User Perception Analysis</span>
+          <span>Synthesis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-body">
+
+      <h2>Objective</h2>
+      <p>
+        To build a comprehensive understanding of the US card market — covering general credit and debit cards, co-branded variants (credit and debit), store cards, and gift cards — including card penetration, user motivations, demographics, and how each card type serves both users and the brands behind them.
+      </p>
+
+      <h2>Impacts & Outcomes</h2>
+      <ul>
+        <li>Mapped <strong>6 card types</strong> across description, key benefits, limitations, market size, and typical user profiles — creating a single reference for strategic decisions.</li>
+        <li>Identified <strong>three universal adoption drivers</strong> across all card types: brand-linked value, tailored rewards, and ecosystem integration.</li>
+        <li>Surfaced <strong>distinct user perception profiles</strong> (reward-motivated, convenience-driven, brand-affinity) that cut across card types and inform targeting strategy.</li>
+        <li>Analyzed <strong>15+ specific card products</strong> across travel, cashback, co-branded credit and debit, store, and gift categories — comparing advantages, limitations, and user fit.</li>
+        <li>Documented <strong>payment and repayment flows</strong> for credit cards to clarify how authorization, clearing, and settlement work end-to-end.</li>
+      </ul>
+
+      <div class="cs-process-divider"><span>Process</span></div>
+
+      <h2>Research approach</h2>
+      <p>
+        This was a <strong>secondary research and synthesis project</strong> — I reviewed industry reports, consumer surveys, and financial platform documentation to build a structured picture of the card market from multiple angles: the user's perspective, the brand's perspective, and the broader market context. Sources included Forbes, Federal Reserve, Capital One Shopping Research, YouGov surveys, and financial platform documentation.
+      </p>
+      <p>
+        I organized findings into a consistent framework across all 6 card types — covering description, key benefits, limitations, user perception, usage patterns, and demographics — to make the research immediately usable for product and strategy teams.
+      </p>
+
+      <h2>The three adoption drivers</h2>
+      <p>Across all card types, three characteristics consistently drove usage and adoption:</p>
+
+      <div class="cs-insights">
+        <div class="cs-insight-card">
+          <div class="insight-num">01</div>
+          <h3>Brand-linked value</h3>
+          <p>Instant discounts, cash back, loyalty points, and exclusive perks tied to specific brands or networks drive initial adoption and repeat use.</p>
+        </div>
+        <div class="cs-insight-card">
+          <div class="insight-num">02</div>
+          <h3>Tailored rewards</h3>
+          <p>Cards that match their reward structure to user spending habits — travel for high earners, debit co-brands for debt-averse users — outperform generic alternatives.</p>
+        </div>
+        <div class="cs-insight-card">
+          <div class="insight-num">03</div>
+          <h3>Ecosystem integration</h3>
+          <p>Cards that embed into users' routines via mobile apps, loyalty programs, and digital wallets see higher engagement and retention.</p>
+        </div>
+      </div>
+
+      <div class="cs-process-divider"><span>Key findings by card type</span></div>
+
+      <h2>Credit & debit — market scale</h2>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num">82%</div>
+          <p>of US adults have at least 1 credit card — 219.7 million people</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">90%</div>
+          <p>of US adults have at least 1 debit card — 241.1 million people</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">1 in 4</div>
+          <p>US consumers have a co-branded credit card</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">59%</div>
+          <p>of Americans have a store credit card</p>
+        </div>
+      </div>
+
+      <h2>Card type overview</h2>
+      <div class="card-type-grid">
+
+        <div class="card-type">
+          <div class="card-tag">Credit Card</div>
+          <h3>Credit Card</h3>
+          <ul>
+            <li><strong>Why users choose it:</strong> Build credit, earn rewards, cover future expenses.</li>
+            <li><strong>Key draw:</strong> Rewards (travel or cashback), fraud protection, installment options.</li>
+            <li><strong>Limitation:</strong> Requires approval, risk of debt/interest (APR 20–24%).</li>
+            <li><strong>Main networks:</strong> Visa, Mastercard, Amex, Discover.</li>
+          </ul>
+        </div>
+
+        <div class="card-type">
+          <div class="card-tag">Debit Card</div>
+          <h3>Debit Card</h3>
+          <ul>
+            <li><strong>Why users choose it:</strong> Avoid debt, expense transparency, cash access.</li>
+            <li><strong>Key draw:</strong> No credit check, instant fund access, widely accepted.</li>
+            <li><strong>Limitation:</strong> Limited rewards, no credit building.</li>
+            <li><strong>Demographics:</strong> Gen Z for daily use; older users for security.</li>
+          </ul>
+        </div>
+
+        <div class="card-type">
+          <div class="card-tag">Co-branded Credit</div>
+          <h3>Co-branded Credit</h3>
+          <ul>
+            <li><strong>Why users choose it:</strong> Brand-specific rewards while building credit.</li>
+            <li><strong>Key draw:</strong> Exclusive perks, easier approval (min. 640 score), loyalty integration.</li>
+            <li><strong>Limitation:</strong> Best value only if spending frequently at partner brand; high APR.</li>
+            <li><strong>Demographics:</strong> Higher earners; 35% earn $80K+.</li>
+          </ul>
+        </div>
+
+        <div class="card-type">
+          <div class="card-tag">Co-branded Debit</div>
+          <h3>Co-branded Debit</h3>
+          <ul>
+            <li><strong>Why users choose it:</strong> Brand rewards without credit risk or approval.</li>
+            <li><strong>Key draw:</strong> No credit check, no debt risk, exclusive partner discounts.</li>
+            <li><strong>Limitation:</strong> Lower rewards than credit; weak purchase protection.</li>
+            <li><strong>Demographics:</strong> Millennials/Gen Z, low-mid income, debt-averse users.</li>
+          </ul>
+        </div>
+
+        <div class="card-type">
+          <div class="card-tag">Store Card</div>
+          <h3>Store Card</h3>
+          <ul>
+            <li><strong>Why users choose it:</strong> Instant discounts and savings at a specific retailer.</li>
+            <li><strong>Key draw:</strong> Easy approval, higher rewards within that store, store-account integration.</li>
+            <li><strong>Limitation:</strong> Only usable at targeted merchant; high APR.</li>
+            <li><strong>Demographics:</strong> Frequent shoppers at the targeted store.</li>
+          </ul>
+        </div>
+
+        <div class="card-type">
+          <div class="card-tag">Gift Card</div>
+          <h3>Gift Card</h3>
+          <ul>
+            <li><strong>Why users choose it:</strong> Easy gifting, budget control, flexible for recipient.</li>
+            <li><strong>Key draw:</strong> No approval needed, instant digital delivery, customizable amounts.</li>
+            <li><strong>Limitation:</strong> One-time use, no rewards, fraud risk.</li>
+            <li><strong>Market:</strong> US = 36% ($447.7B) of global gift card market in 2025.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <h2>Credit card types — travel vs cashback</h2>
+      <div class="two-col">
+        <div class="two-col-card">
+          <h3>✈ General & travel</h3>
+          <ul>
+            <li>Points/miles redeemable for flights, hotels, transfers.</li>
+            <li>Perks: lounge access, hotel credits, TSA PreCheck, no foreign transaction fee.</li>
+            <li>Annual fee typically $95–$695+.</li>
+            <li><strong>Best for:</strong> frequent travelers and high spenders.</li>
+            <li>Requires tracking bonus categories and transfer partners.</li>
+          </ul>
+        </div>
+        <div class="two-col-card">
+          <h3>💰 Cashback</h3>
+          <ul>
+            <li>Straightforward 1–5% back on purchases.</li>
+            <li>Redeemable as statement credits, bank deposits, or gift cards.</li>
+            <li>Often no annual fee.</li>
+            <li><strong>Best for:</strong> everyday spenders who want simple rewards.</li>
+            <li>Minimal management needed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>User perception profiles</h2>
+      <p>Across all card types, four user perception archetypes consistently appeared:</p>
+      <div class="perception-grid">
+        <div class="perception-card">
+          <h3>Reward Motivated</h3>
+          <p>Attracted by exclusive rewards, discounts, perks, and access. Will choose the card that maximizes return on their specific spending habits.</p>
+        </div>
+        <div class="perception-card">
+          <h3>Convenience-Driven</h3>
+          <p>Wants simplicity and rewards for frequent shopping places. Values ease of use over maximizing reward value.</p>
+        </div>
+        <div class="perception-card">
+          <h3>Brand-affinity Enthusiast</h3>
+          <p>Seeks emotional connection, exclusive status, and loyalty with a specific brand. The card is part of their identity with that brand.</p>
+        </div>
+        <div class="perception-card">
+          <h3>Deal Seeker / Complementary User</h3>
+          <p>Uses the card for specific occasions or as a secondary card alongside a primary card. Values targeted discounts over breadth of rewards.</p>
+        </div>
+      </div>
+
+      <h2>Consumer insights</h2>
+      <div class="cs-pullquote">
+        <p>Users don't think in card categories — they think in moments. The right card is the one that rewards them for what they already do.</p>
+      </div>
+      <ul>
+        <li><strong>Income shapes card type, not just spending:</strong> 98% of households earning $100K+ have a credit card vs. 57% of households earning under $25K — reward programs are structurally more accessible to higher earners.</li>
+        <li><strong>Gen Z is debit-first but reward-hungry:</strong> 69% of Gen Z reported weekly/daily co-branded debit card use — they want the benefits of rewards without the risk of credit. Co-branded debit is a direct response to this segment.</li>
+        <li><strong>Co-branded cards require active spending to justify:</strong> Their value proposition only lands for users who shop frequently at the partner brand. Infrequent shoppers see lower rewards than a general cashback card.</li>
+        <li><strong>Mobile and digital wallet integration is now table stakes:</strong> 45% of credit card transactions are mobile. Cards that don't integrate with Apple Pay or Google Pay lose usage to those that do.</li>
+        <li><strong>Gift cards peak on occasion, not habit:</strong> 64% of US consumers buy gift cards as holiday gifts; 56% for special events. They're not part of a loyalty loop — they're a gifting tool.</li>
+      </ul>
+
+      <h2>Business impact</h2>
+      <ul>
+        <li><strong>For brands launching co-branded cards:</strong> Success depends on reward differentiation and active use at the partner brand. Cards with weak partner-spend incentives underperform general cashback alternatives.</li>
+        <li><strong>For debit-first markets:</strong> Co-branded debit is an underutilized opportunity — it reaches younger, debt-averse users that co-branded credit misses, without credit approval barriers.</li>
+        <li><strong>Ecosystem lock-in drives long-term value:</strong> Cards embedded in loyalty programs, mobile wallets, and digital accounts generate higher engagement and retention than standalone products.</li>
+        <li><strong>Gift cards generate brand revenue beyond direct spend:</strong> Unused balance becomes direct profit. Fraud is the primary risk — it remains the most common card fraud type in the US.</li>
+        <li><strong>Installment plan adoption is growing:</strong> Over 30 million Americans use installment plans. Offering 0% installment options at checkout reduces cart abandonment and increases average order value, particularly for Gen Z and Millennials.</li>
+      </ul>
+
+      <div class="cs-process-divider"><span>Takeaways</span></div>
+
+      <h2>What I learned</h2>
+      <ul>
+        <li><strong>Market research reveals the "why" behind product decisions:</strong> Understanding that co-branded debit exists specifically for debt-averse Millennials and Gen Z reframes how you think about product positioning — it's not just a debit card with perks, it's a credit-free loyalty play.</li>
+        <li><strong>User perception is more segmented than demographics suggest:</strong> The same demographic can hold very different mental models about cards. Mapping perception profiles alongside demographics gave a more actionable picture than age or income alone.</li>
+        <li><strong>Secondary research requires active synthesis, not just aggregation:</strong> The value wasn't in collecting facts — it was in finding the patterns across card types that product teams could actually use to make decisions.</li>
+      </ul>
+
+    </div><!-- /cs-body -->
+
+    <div class="cs-nav">
+      <a href="ewallet.html" class="cs-nav-link prev"><span>←</span> E-wallet analysis</a>
+      <a href="index.html" class="cs-nav-link next">All case studies <span>→</span></a>
+    </div>
+
+    <footer>
+      <p>Made with Claude AI &amp; learning passion.</p>
+      <span class="page-num">p. 06</span>
+    </footer>
+
+  </div><!-- /protected -->
+
+</div><!-- /content-wrap -->
+</main>
+
+<script>
+  document.getElementById('gate-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+  function checkPassword() {
+    const input = document.getElementById('gate-input').value;
+    const error = document.getElementById('gate-error');
+    if (input === '12') {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('protected').classList.add('unlocked');
+    } else {
+      error.classList.add('show');
+      document.getElementById('gate-input').value = '';
+      document.getElementById('gate-input').focus();
+    }
+  }
+</script>
+
+</body>
+</html>
