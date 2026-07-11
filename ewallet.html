@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Wallet Competitive Analysis</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Password gate ── */
+    #gate {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gate-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      max-width: 340px;
+      width: 100%;
+    }
+
+    .gate-lock { font-size: 40px; line-height: 1; }
+
+    .gate-title {
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .gate-note {
+      font-size: 15px;
+      color: var(--ink-light);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .gate-input-row {
+      display: flex;
+      width: 100%;
+      border: 1.5px solid var(--ink);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .gate-input {
+      flex: 1;
+      padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      border: none;
+      outline: none;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .gate-input::placeholder { color: var(--ink-light); }
+
+    .gate-btn {
+      padding: 12px 20px;
+      background: var(--sage);
+      color: var(--ink);
+      border: none;
+      border-left: 1.5px solid var(--ink);
+      font-family: 'Caveat', cursive;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .gate-btn:hover { background: var(--sage-light); }
+
+    .gate-error {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      color: #b85c5c;
+      display: none;
+    }
+    .gate-error.show { display: block; }
+
+    /* ── Protected content ── */
+    #protected { display: none; }
+    #protected.unlocked { display: block; }
+
+    /* ── Competitor comparison table ── */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      margin: 24px 0 36px;
+    }
+
+    .comp-card {
+      background: var(--paper-warm);
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      padding: 18px 18px 20px;
+      box-shadow: 3px 3px 0 var(--blush-light);
+    }
+
+    .comp-card h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .comp-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .comp-card ul li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      font-weight: 300;
+      margin-bottom: 5px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .comp-card ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+    }
+
+    .comp-card ul li strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ── User profile cards ── */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      margin: 24px 0 36px;
+    }
+
+    .profile-card {
+      background: var(--sage-pale);
+      border: 1.5px solid var(--sage);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+
+    .profile-card h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .profile-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      font-weight: 300;
+      margin: 0;
+    }
+
+    /* ── Stat row ── */
+    .stat-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 24px 0 36px;
+    }
+
+    .stat-box {
+      flex: 1;
+      min-width: 140px;
+      background: var(--blush-pale);
+      border: 1.5px solid var(--blush);
+      border-radius: 8px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .stat-box .stat-num {
+      font-family: 'Caveat', cursive;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-box p {
+      font-size: 13px;
+      color: var(--ink-mid);
+      font-weight: 300;
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="spiral-holes" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<main>
+<div class="content-wrap">
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="Images/logo.png" alt="Wing" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PASSWORD GATE ── -->
+  <div id="gate">
+    <div class="gate-box">
+      <div class="gate-lock">🔒</div>
+      <p class="gate-title">This work is protected</p>
+      <p class="gate-note">This case study contains confidential work from my current role. Enter the password to view.</p>
+      <div class="gate-input-row">
+        <input type="password" class="gate-input" id="gate-input"
+          placeholder="Enter password" autocomplete="off" />
+        <button class="gate-btn" onclick="checkPassword()">Enter</button>
+      </div>
+      <p class="gate-error" id="gate-error">Incorrect password. Try again.</p>
+      <p class="gate-note" style="font-size:13px;">
+        Don't have it? <a href="mailto:wingkoon0718@gmail.com" style="color:var(--ink);border-bottom:1px dashed var(--ink-light);">Email me</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ── PROTECTED CONTENT ── -->
+  <div id="protected">
+
+    <a href="index.html" class="back-link">← Back to all work</a>
+
+    <header class="cs-header">
+      <div class="cs-header-text">
+        <div class="cs-tag-row">
+          <span class="cs-tag">Competitive Analysis</span>
+          <span class="cs-tag alt">Market Research</span>
+          <span class="cs-year">Current role · 2026</span>
+        </div>
+        <h1 class="cs-title">US E-Wallet Competitive Analysis</h1>
+        <p class="cs-subtitle">
+          A deep-dive competitive analysis of the US e-wallet landscape — mapping core user flows, onboarding friction, security models, and market penetration across Venmo, Cash App, Apple Pay, and Google Pay to inform product strategy.
+        </p>
+      </div>
+    </header>
+
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Role</div>
+        <div class="cs-meta-value">UX Researcher</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Context</div>
+        <div class="cs-meta-value">Current employer</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Scope</div>
+        <div class="cs-meta-value">4 platforms · iOS & Android</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Tasks</div>
+        <div class="cs-meta-value cs-meta-tasks">
+          <span>Competitive Analysis</span>
+          <span>Flow Mapping</span>
+          <span>Market Research</span>
+          <span>Synthesis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-body">
+
+      <h2>Objective</h2>
+      <p>
+        To map and understand the core user flows of leading US e-wallets — <strong>Venmo, Cash App, Apple Pay, and Google Pay</strong> — and surface insights about usage scenarios, onboarding friction, payment behavior, and user profiles to inform product and research decisions.
+      </p>
+
+      <h2>Impacts & Outcomes</h2>
+      <ul>
+        <li>Mapped <strong>6 core flows</strong> (onboarding/KYC, top-up, withdrawal, purchase, refund, account management) across 4 platforms on both iOS and Android.</li>
+        <li>Identified <strong>key friction points and UX inconsistencies</strong> including Cash App's debit-card-first payment method gate, Apple Pay's split settings across two apps, and Venmo's cross-app redirect during purchase.</li>
+        <li>Surfaced <strong>platform-specific bugs</strong> during hands-on flow testing, including Venmo's Android top-up error and Cash App's PIN inconsistency during onboarding vs. app entry.</li>
+        <li>Compiled <strong>US market penetration data</strong> and defined distinct user profiles for each platform to support product positioning decisions.</li>
+      </ul>
+
+      <div class="cs-process-divider"><span>Process</span></div>
+
+      <h2>How I approached it</h2>
+      <p>
+        I conducted <strong>hands-on flow walkthroughs</strong> on both iOS and Android for all 4 platforms, recording each step with screen captures and notes. For each platform, I documented what information was asked at each stage, where friction appeared, what worked well, and any bugs or inconsistencies encountered. I then synthesized findings into a structured comparison across four dimensions: onboarding & KYC, payment methods & top-up, security & privacy, and UX/UI.
+      </p>
+      <p>
+        Market penetration data was layered in from secondary research to contextualize how usage patterns align with each platform's design decisions.
+      </p>
+
+      <h2>Platforms analyzed</h2>
+      <div class="comp-grid">
+
+        <div class="comp-card">
+          <h3>Venmo</h3>
+          <ul>
+            <li><strong>Onboarding:</strong> Phone + email, optional card. SSN/ITIN only for crypto features.</li>
+            <li><strong>Payments:</strong> CCDC, bank transfer, Amex (via redirect). 3% fee for P2P credit card.</li>
+            <li><strong>Security:</strong> SMS 2FA, user-controlled biometrics and privacy settings.</li>
+            <li><strong>Standout:</strong> Most comprehensive account management. Online purchase redirects to app.</li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <h3>Cash App</h3>
+          <ul>
+            <li><strong>Onboarding:</strong> Longest flow — debit card first, then personal info. ID verification post-setup.</li>
+            <li><strong>Payments:</strong> Must link debit card before bank or credit card appear — undisclosed friction.</li>
+            <li><strong>Security:</strong> Biometrics, PIN, authenticator for tax info. PIN not enforced on app entry.</li>
+            <li><strong>Standout:</strong> Pre-set top-up amounts reduce friction. Boosts & Neighborhoods rewards.</li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <h3>Apple Pay</h3>
+          <ul>
+            <li><strong>Onboarding:</strong> Auto-login via Apple ID. Card-only — no bank transfer support.</li>
+            <li><strong>Payments:</strong> Stored balance via Apple Cash only (debit top-up, bank withdrawal).</li>
+            <li><strong>Security:</strong> Device-level, no separate login or biometrics required.</li>
+            <li><strong>Standout:</strong> Fastest checkout. Settings split across Wallet app and iOS Settings.</li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <h3>Google Pay</h3>
+          <ul>
+            <li><strong>Onboarding:</strong> Auto-login via Google account. Card-only — no bank transfer support.</li>
+            <li><strong>Payments:</strong> No stored balance. BNPL options auto-linked at checkout.</li>
+            <li><strong>Security:</strong> Device-level, minimal in-app privacy controls.</li>
+            <li><strong>Standout:</strong> Seamless checkout. Settings focused on notifications and card management.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <h2>Key findings</h2>
+
+      <div class="cs-pullquote">
+        <p>Users prioritize convenience and speed. The platforms with the least friction at checkout — Apple Pay and Google Pay — lead in adoption, even though they offer fewer features.</p>
+      </div>
+
+      <ul>
+        <li><strong>Onboarding friction varies significantly:</strong> Apple Pay and Google Pay leverage existing accounts for near-instant setup. Venmo and Cash App require more information but unlock richer features like P2P transfers and stored balances.</li>
+        <li><strong>Cash App's payment method gate is a hidden friction point:</strong> Requiring a debit card before revealing bank/credit card options is not communicated upfront — users discover it only when trying to add an alternative, creating confusion and drop-off risk.</li>
+        <li><strong>Apple Pay's split settings creates discoverability issues:</strong> Core customization lives in iOS Settings, not the Wallet app — counter-intuitive for users expecting in-app control.</li>
+        <li><strong>Platform roles are distinct:</strong> Apple Pay and Google Pay dominate card-based retail checkout; Venmo and Cash App own P2P and stored-balance behavior. These aren't direct substitutes — they serve different moments.</li>
+        <li><strong>Security models reflect UX tradeoffs:</strong> Venmo and Cash App give users more control over privacy and biometrics; Apple and Google defer to device-level security, reducing friction but also user agency.</li>
+      </ul>
+
+      <h2>Market context</h2>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num">69%</div>
+          <p>of US adults used a digital wallet at least once in the past 30 days</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">38%</div>
+          <p>use a digital wallet at least weekly</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">12.2%</div>
+          <p>Apple Pay share — #1 in the US, accepted at 90%+ of retailers</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">90%+</div>
+          <p>of US retailers accept Apple Pay, driving its adoption lead</p>
+        </div>
+      </div>
+
+      <h2>User profiles</h2>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <h3>Venmo</h3>
+          <p>Social P2P users — Gen Z and Millennials splitting bills, paying friends, and spending with an all-in-one platform.</p>
+        </div>
+        <div class="profile-card">
+          <h3>Cash App</h3>
+          <p>Financial access seekers — users who want P2P payments, stored balance, a debit card, and tools like stock trading.</p>
+        </div>
+        <div class="profile-card">
+          <h3>Apple Pay</h3>
+          <p>Convenience users — iPhone owners who want fast, seamless contactless payments with minimal setup.</p>
+        </div>
+        <div class="profile-card">
+          <h3>Google Pay</h3>
+          <p>Convenience shoppers — Android users who want fast, card-based contactless payments with BNPL options.</p>
+        </div>
+      </div>
+
+      <div class="cs-process-divider"><span>Consumer insights</span></div>
+
+      <h2>What users actually want from e-wallets</h2>
+      <div class="cs-pullquote">
+        <p>Users don't choose an e-wallet for its features — they choose it for the moment it removes friction from.</p>
+      </div>
+      <ul>
+        <li><strong>Speed wins at checkout:</strong> Apple Pay and Google Pay lead in adoption because they reduce checkout to a single biometric tap. Users don't care about stored balance or P2P if the core checkout experience is slower.</li>
+        <li><strong>P2P and stored balance serve different mental models:</strong> Venmo and Cash App users think of their wallet as a financial account — they store money, track spending, and earn rewards. Apple/Google Pay users think of it as a payment method, not a place to store funds.</li>
+        <li><strong>Trust is earned at the moment of friction:</strong> The identity verification steps (SSN, address, photo ID) in Venmo and Cash App feel intrusive unless users understand the payoff. Cash App's verification being buried post-signup creates confusion about what features require it.</li>
+        <li><strong>Gen Z and Millennials are co-branded debit users:</strong> 69% of Gen Z reported weekly/daily co-branded debit use — they want rewards without credit risk. Venmo's Stash cashback and Cash App's Boosts are direct plays for this behavior.</li>
+        <li><strong>Security perception varies by interaction model:</strong> Users feel more secure with Venmo/Cash App's explicit biometric and PIN controls. Apple/Google Pay's device-level security feels invisible — which some users experience as less secure, even if it isn't.</li>
+      </ul>
+
+      <h2>Business impact</h2>
+      <ul>
+        <li><strong>Onboarding friction is a direct conversion risk:</strong> Cash App's longest onboarding — including the debit-card-first gate and post-signup identity verification — creates multiple drop-off points that don't exist in Apple/Google Pay. For any product entering this space, minimizing required information before first value is critical.</li>
+        <li><strong>Platform roles are non-overlapping — and that's an opportunity:</strong> Apple/Google Pay dominate card-based retail checkout; Venmo/Cash App own P2P and stored-balance behavior. A product that bridges both (stored balance + seamless checkout) doesn't fully exist yet.</li>
+        <li><strong>Rewards and tiers drive stickiness in stored-balance platforms:</strong> Venmo's Stash program (up to 5% cashback with direct deposits) and Cash App's Green tier create incentive loops that keep users returning. For products competing here, a rewards strategy is not optional.</li>
+        <li><strong>Cross-device complexity increases drop-off:</strong> Cash App's parental controls requiring mobile app + console cross-hopping is the same UX failure pattern — any time users are asked to switch devices or apps mid-task, completion rates fall.</li>
+        <li><strong>BNPL is becoming default infrastructure:</strong> Google Pay auto-links BNPL options at checkout; Apple Pay supports installment plans for iOS 18+. For merchants and platforms, BNPL integration is moving from differentiator to expectation.</li>
+      </ul>
+
+      <div class="cs-process-divider"><span>Takeaways</span></div>
+
+      <h2>What I learned</h2>
+      <ul>
+        <li><strong>Hands-on testing surfaces what documentation misses:</strong> Bugs, undisclosed gates (like Cash App's debit-card requirement), and UX inconsistencies only show up when you actually move through the flows — not from reading feature lists or marketing pages.</li>
+        <li><strong>Friction and features are in tension:</strong> The platforms with the richest features (Venmo, Cash App) require more from users upfront. Understanding where that tradeoff is worth it — and where it isn't — is the core question for any product competing in this space.</li>
+        <li><strong>Market data alone doesn't explain behavior:</strong> Apple Pay leads in adoption not just because it's widely accepted, but because it removes barriers at every step. The design decisions are inseparable from the market position.</li>
+      </ul>
+
+    </div><!-- /cs-body -->
+
+    <div class="cs-nav">
+      <span></span>
+      <a href="index.html#work" class="cs-nav-link next">All case studies <span>→</span></a>
+    </div>
+
+    <footer>
+      <p>Made with Claude AI &amp; learning passion.</p>
+      <span class="page-num">p. 05</span>
+    </footer>
+
+  </div><!-- /protected -->
+
+</div><!-- /content-wrap -->
+</main>
+
+<script>
+  document.getElementById('gate-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  function checkPassword() {
+    const input = document.getElementById('gate-input').value;
+    const error = document.getElementById('gate-error');
+    if (input === '12') {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('protected').classList.add('unlocked');
+    } else {
+      error.classList.add('show');
+      document.getElementById('gate-input').value = '';
+      document.getElementById('gate-input').focus();
+    }
+  }
+</script>
+
+</body>
+</html>
