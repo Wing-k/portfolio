@@ -275,7 +275,7 @@ section { margin-bottom: 68px; }
   flex-wrap: wrap;
 }
 
-.hero-text { flex: 1; min-width: 260px; max-width: 590px; }
+.hero-text { flex: 1; min-width: 260px; max-width: 520px; }
 
 .hero-photo-wrap {
   flex-shrink: 0;
@@ -1100,6 +1100,84 @@ footer p, .page-num {
   color: var(--ink-light);
 }
 
+/* ── Stat row (market research pages) ── */
+.stat-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px 0 36px;
+}
+.stat-box {
+  flex: 1;
+  min-width: 130px;
+  background: var(--blush-pale);
+  border: 1.5px solid var(--blush);
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.stat-box .stat-num {
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-box p {
+  font-size: 13px;
+  color: var(--ink-mid);
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Research ops tool cards ── */
+.ops-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 28px 0 36px;
+}
+
+.ops-tool-card {
+  background: var(--paper-warm);
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 3px 3px 0 var(--sage-light);
+}
+
+.ops-tool-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ops-tool-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.ops-tool-card h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.ops-tool-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-mid);
+  font-weight: 300;
+  margin: 0;
+}
+
 /* Back link */
 .back-link {
   display: inline-flex;
@@ -1149,4 +1227,102 @@ footer p, .page-num {
 
 @media (min-width: 681px) and (max-width: 1024px) {
   main { padding: 52px 5vw 80px 5vw; }
+}
+
+/* ── Stat row (market research pages) ── */
+.stat-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px 0 36px;
+}
+.stat-box {
+  flex: 1;
+  min-width: 130px;
+  background: var(--blush-pale);
+  border: 1.5px solid var(--blush);
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.stat-box .stat-num {
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-box p {
+  font-size: 13px;
+  color: var(--ink-mid);
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── cs-process-divider ── */
+.cs-process-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 48px 0 28px;
+}
+.cs-process-divider span {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.cs-process-divider::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--ink-light) 0, var(--ink-light) 4px,
+    transparent 4px, transparent 8px
+  );
+}
+
+/* ── Research ops tool cards ── */
+.ops-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 28px 0 36px;
+}
+.ops-tool-card {
+  background: var(--paper-warm);
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 3px 3px 0 var(--sage-light);
+}
+.ops-tool-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.ops-tool-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.ops-tool-card h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+.ops-tool-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-mid);
+  font-weight: 300;
+  margin: 0;
 }
