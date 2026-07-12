@@ -92,7 +92,7 @@
     /* ── Competitor comparison table ── */
     .comp-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
       margin: 24px 0 36px;
     }
@@ -322,40 +322,40 @@
         <div class="comp-card">
           <h3>Venmo</h3>
           <ul>
-            <li><strong>Onboarding:</strong> Phone + email, optional card. SSN/ITIN only for crypto features.</li>
-            <li><strong>Payments:</strong> CCDC, bank transfer, Amex (via redirect). 3% fee for P2P credit card.</li>
-            <li><strong>Security:</strong> SMS 2FA, user-controlled biometrics and privacy settings.</li>
-            <li><strong>Standout:</strong> Most comprehensive account management. Online purchase redirects to app.</li>
+            <li><strong>Onboarding:</strong> Phone + email, optional card. SSN only for crypto.</li>
+            <li><strong>Payments:</strong> CCDC, bank transfer, Amex redirect. 3% fee for P2P credit.</li>
+            <li><strong>Security:</strong> SMS 2FA, user-controlled biometrics.</li>
+            <li><strong>Note:</strong> Online purchase redirects out to app — added friction.</li>
           </ul>
         </div>
 
         <div class="comp-card">
           <h3>Cash App</h3>
           <ul>
-            <li><strong>Onboarding:</strong> Longest flow — debit card first, then personal info. ID verification post-setup.</li>
-            <li><strong>Payments:</strong> Must link debit card before bank or credit card appear — undisclosed friction.</li>
-            <li><strong>Security:</strong> Biometrics, PIN, authenticator for tax info. PIN not enforced on app entry.</li>
-            <li><strong>Standout:</strong> Pre-set top-up amounts reduce friction. Boosts & Neighborhoods rewards.</li>
+            <li><strong>Onboarding:</strong> Longest flow — debit card required before other methods appear.</li>
+            <li><strong>Payments:</strong> Debit-first gate undisclosed until setup is complete.</li>
+            <li><strong>Security:</strong> Biometrics + PIN; PIN not enforced at app entry.</li>
+            <li><strong>Note:</strong> Pre-set top-up amounts and Boosts rewards are standout features.</li>
           </ul>
         </div>
 
         <div class="comp-card">
           <h3>Apple Pay</h3>
           <ul>
-            <li><strong>Onboarding:</strong> Auto-login via Apple ID. Card-only — no bank transfer support.</li>
-            <li><strong>Payments:</strong> Stored balance via Apple Cash only (debit top-up, bank withdrawal).</li>
-            <li><strong>Security:</strong> Device-level, no separate login or biometrics required.</li>
-            <li><strong>Standout:</strong> Fastest checkout. Settings split across Wallet app and iOS Settings.</li>
+            <li><strong>Onboarding:</strong> Instant via Apple ID. Card-only — no bank transfer.</li>
+            <li><strong>Payments:</strong> Apple Cash balance only (debit top-up, bank withdrawal).</li>
+            <li><strong>Security:</strong> Device-level only — no separate in-app controls.</li>
+            <li><strong>Note:</strong> Settings split across Wallet app and iOS Settings — discoverability issue.</li>
           </ul>
         </div>
 
         <div class="comp-card">
           <h3>Google Pay</h3>
           <ul>
-            <li><strong>Onboarding:</strong> Auto-login via Google account. Card-only — no bank transfer support.</li>
-            <li><strong>Payments:</strong> No stored balance. BNPL options auto-linked at checkout.</li>
+            <li><strong>Onboarding:</strong> Instant via Google account. Card-only — no bank transfer.</li>
+            <li><strong>Payments:</strong> No stored balance. BNPL auto-linked at checkout.</li>
             <li><strong>Security:</strong> Device-level, minimal in-app privacy controls.</li>
-            <li><strong>Standout:</strong> Seamless checkout. Settings focused on notifications and card management.</li>
+            <li><strong>Note:</strong> Seamless checkout experience — settings minimal and notification-focused.</li>
           </ul>
         </div>
 
@@ -440,8 +440,6 @@
       </ul>
 
       <div class="cs-process-divider"><span>Takeaways</span></div>
-
-      <h2>What I learned</h2>
       <ul>
         <li><strong>Hands-on testing surfaces what documentation misses:</strong> Bugs, undisclosed gates (like Cash App's debit-card requirement), and UX inconsistencies only show up when you actually move through the flows — not from reading feature lists or marketing pages.</li>
         <li><strong>Friction and features are in tension:</strong> The platforms with the richest features (Venmo, Cash App) require more from users upfront. Understanding where that tradeoff is worth it — and where it isn't — is the core question for any product competing in this space.</li>
