@@ -6,18 +6,16 @@
   <title>Wing Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── Redesigned case grid ── */
+    /* ── Case grid — image on top, 3 columns ── */
     .case-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
     .case-card {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      align-items: center;
-      gap: 0;
+      display: flex;
+      flex-direction: column;
       background: var(--paper-warm);
       border: 1.5px solid var(--ink);
       border-radius: 10px;
@@ -34,15 +32,13 @@
     }
 
     .case-card-thumb {
-      width: 100px;
-      height: 100%;
-      min-height: 110px;
-      flex-shrink: 0;
+      width: 100%;
+      height: 120px;
       overflow: hidden;
-      border-right: 1.5px solid var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .case-card-thumb img {
@@ -57,13 +53,16 @@
     .thumb-blush { background: var(--blush-light); }
 
     .case-card-body {
-      padding: 14px 16px;
-      border-top: none;
+      padding: 12px 14px 14px;
+      border-top: 1.5px dashed var(--sage);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .case-card-tags {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       flex-wrap: wrap;
       margin-bottom: 6px;
     }
@@ -83,6 +82,7 @@
       line-height: 1.5;
       font-weight: 300;
       margin: 0 0 8px;
+      flex: 1;
     }
 
     .case-arrow {
@@ -94,6 +94,7 @@
       align-items: center;
       gap: 4px;
       transition: color 0.2s, gap 0.2s;
+      margin-top: auto;
     }
     .case-card:hover .case-arrow { color: var(--ink); gap: 7px; }
 
@@ -111,7 +112,10 @@
 
     .cs-tag.alt { background: var(--sage-light); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 680px) {
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    }
+    @media (max-width: 420px) {
       .case-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -208,15 +212,14 @@
         </div>
       </a>
 
-      <a href="ewallet-analysis.html" class="case-card">
+      <a href="ewallet.html" class="case-card">
         <div class="case-card-thumb thumb-blush">
-          <span class="thumb-icon">🔒</span>
           <img src="Images/bytedance.jpeg" alt="Bytedance" />
         </div>
         <div class="case-card-body">
           <div class="case-card-tags">
             <span class="case-tag">Competitive Analysis</span>
-            <span class="cs-tag alt">Protected</span>
+            <span class="cs-tag alt">🔒 Protected</span>
           </div>
           <h3>US E-Wallet Competitive Analysis</h3>
           <p>Flow mapping across Venmo, Cash App, Apple Pay & Google Pay.</p>
@@ -224,18 +227,17 @@
         </div>
       </a>
 
-      <a href="card-understanding.html" class="case-card">
+      <a href="cards.html" class="case-card">
         <div class="case-card-thumb thumb-sage">
-          <span class="thumb-icon">🔒</span>
           <img src="Images/bytedance.jpeg" alt="Bytedance" />
         </div>
         <div class="case-card-body">
           <div class="case-card-tags">
             <span class="case-tag">Market Research</span>
-            <span class="cs-tag alt">Protected</span>
+            <span class="cs-tag alt">🔒 Protected</span>
           </div>
-          <h3>Card Understanding — US Market</h3>
-          <p>Credit, debit, co-branded, store & gift cards — motivations & market size.</p>
+          <h3>Card Understanding</h3>
+          <p>Understand motivations & market size for credit, debit, co-branded, store & gift cards</p>
           <div class="case-arrow">View <span>→</span></div>
         </div>
       </a>
@@ -297,7 +299,7 @@
       </div>
       <div class="about-box">
         <p>
-          I'm a UX researcher with <strong>2+ years of experience</strong> working across payment, wearable hardware, AR/VR, and social impact initiatives. I'm drawn to explore and understand the <strong>"why"</strong> behind user behavior <strong>with a Human Factors lens</strong>, whether through operations or execution.
+          I'm a researcher with <strong>2+ years of experience</strong> working across payment, wearable hardware, AR/VR, and social initiatives. I'm drawn to explore and understand the <strong>"why"</strong> behind user behavior <strong>with a Human Factors lens</strong>, whether through operations or execution.
         </p>
         <p>Outside of work, I enjoy trying new food places, exploring photospots, and watching anime & drama.</p>
         <p>If you're curious about my process, I'm always happy to talk.</p>
