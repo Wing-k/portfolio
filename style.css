@@ -863,8 +863,8 @@ h1 .highlight::after {
 /* Case study grid (home page) */
 .case-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .case-card {
@@ -883,12 +883,12 @@ h1 .highlight::after {
 }
 
 .case-card:hover {
-  transform: translate(-3px, -3px) scale(1.02);
-  box-shadow: 6px 6px 0 var(--ink);
+  transform: translate(-2px, -2px) scale(1.01);
+  box-shadow: 5px 5px 0 var(--ink);
 }
 
 .case-card-thumb {
-  height: 160px;
+  height: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -925,51 +925,51 @@ h1 .highlight::after {
 }
 
 .case-card-body {
-  padding: 14px 16px 18px;
+  padding: 12px 14px 16px;
   border-top: 1.5px dashed var(--sage);
 }
 
 .case-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   background: var(--blush-light);
   color: var(--ink-mid);
-  padding: 3px 10px;
+  padding: 2px 8px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .case-card h3 {
   font-family: 'Caveat', cursive;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 8px;
+  line-height: 1.2;
+  margin-bottom: 5px;
 }
 
 .case-card p {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--ink-mid);
-  line-height: 1.65;
+  line-height: 1.55;
   font-weight: 300;
 }
 
 .case-arrow {
-  margin-top: 12px;
+  margin-top: 10px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink-light);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   transition: color 0.2s, gap 0.2s;
 }
 
-.case-card:hover .case-arrow { color: var(--ink); gap: 10px; }
+.case-card:hover .case-arrow { color: var(--ink); gap: 8px; }
 
 /* Methods */
 .methods-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -1205,9 +1205,9 @@ footer p, .page-num {
   .cs-cover { height: 200px; }
   .cs-meta { gap: 20px; }
   .cs-tag-row { flex-wrap: wrap; }
-  /* Stack header on mobile: sticky note goes below title */
   .cs-header { flex-direction: column; gap: 16px; }
   .cs-sticky { align-self: flex-start; }
+  .case-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
 
   /* Raccoon grid collapses gracefully on mobile */
   .cs-insights.raccoon-features {
