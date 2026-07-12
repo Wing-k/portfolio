@@ -5,6 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wing Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Redesigned case grid ── */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .case-card {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      align-items: center;
+      gap: 0;
+      background: var(--paper-warm);
+      border: 1.5px solid var(--ink);
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .case-card:hover {
+      transform: translate(-2px,-2px) scale(1.01);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .case-card-thumb {
+      width: 100px;
+      height: 100%;
+      min-height: 110px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-right: 1.5px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .case-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-icon { font-size: 32px; opacity: 0.5; }
+    .thumb-sage  { background: var(--sage-light); }
+    .thumb-blush { background: var(--blush-light); }
+
+    .case-card-body {
+      padding: 14px 16px;
+      border-top: none;
+    }
+
+    .case-card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .case-card h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 0 0 4px;
+    }
+
+    .case-card p {
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.5;
+      font-weight: 300;
+      margin: 0 0 8px;
+    }
+
+    .case-arrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .case-card:hover .case-arrow { color: var(--ink); gap: 7px; }
+
+    .case-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--blush-light);
+      color: var(--ink-mid);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .cs-tag.alt { background: var(--sage-light); }
+
+    @media (max-width: 600px) {
+      .case-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -40,7 +150,7 @@
         </div>
       </div>
       <div class="hero-photo-wrap">
-        <img src="Images/photo.jpg" alt="Your Name" class="hero-photo" />
+        <img src="Images/photo.jpg" alt="Wing" class="hero-photo" />
         <span class="hero-tag">✦ UX Research & Operations</span>
       </div>
     </div>
@@ -60,10 +170,12 @@
           <img src="Images/nintendo.jpg" alt="Nintendo Switch" />
         </div>
         <div class="case-card-body">
-          <span class="case-tag">Usability Testing Study</span>
-          <h3>Identify real user behaviors and pain points</h3>
-          <p>Study protocol + usability testing for Nintendo's Switch user setup journey.</p>
-          <div class="case-arrow">Read case study <span>→</span></div>
+          <div class="case-card-tags">
+            <span class="case-tag">Usability Testing</span>
+          </div>
+          <h3>Nintendo Switch Usability Study</h3>
+          <p>Protocol design & testing across novice, expert, and parent users.</p>
+          <div class="case-arrow">Read <span>→</span></div>
         </div>
       </a>
 
@@ -72,10 +184,12 @@
           <img src="https://framerusercontent.com/images/mk8BtIWdNi1MIP897oFUM2tFGW8.png" alt="Blossom" />
         </div>
         <div class="case-card-body">
-          <span class="case-tag">Social Network Platform</span>
-          <h3>Maximize attendees' social bonding in events</h3>
-          <p>Research and design on co-creation in community events to foster interactions.</p>
-          <div class="case-arrow">Read case study <span>→</span></div>
+          <div class="case-card-tags">
+            <span class="case-tag">Research & Design</span>
+          </div>
+          <h3>Blossom — Social Bonding at Events</h3>
+          <p>Co-created bingo game to foster interaction in community events.</p>
+          <div class="case-arrow">Read <span>→</span></div>
         </div>
       </a>
 
@@ -84,37 +198,45 @@
           <img src="https://framerusercontent.com/images/pIo6YwzVuVxPUayAbox2Nky3V7g.png" alt="Raccoon" />
         </div>
         <div class="case-card-body">
-          <span class="case-tag">Mobile App</span>
-          <span class="cs-tag alt">Best Sustainability Award</span>
-          <h3>Designing for accessibility first</h3>
-          <p>Sustainability platform to increase eco-consciousness and environmental efforts.</p>
-          <div class="case-arrow">Read case study <span>→</span></div>
+          <div class="case-card-tags">
+            <span class="case-tag">Mobile App</span>
+            <span class="cs-tag alt">🏆 Best Sustainability</span>
+          </div>
+          <h3>Raccoon — Eco-Conscious Habits</h3>
+          <p>Sustainability app with scavenger hunt, trash sorting, and infographics.</p>
+          <div class="case-arrow">Read <span>→</span></div>
         </div>
       </a>
 
-      <a href="ewallet.html" class="case-card">
+      <a href="ewallet-analysis.html" class="case-card">
         <div class="case-card-thumb thumb-blush">
           <span class="thumb-icon">🔒</span>
+          <img src="Images/bytedance.jpeg" alt="Bytedance" />
         </div>
         <div class="case-card-body">
-          <span class="case-tag">Competitive Analysis</span>
-          <span class="cs-tag alt">Password Protected</span>
-          <h3>E-wallet competitor analysis</h3>
-          <p>Flow mapping and market research across platforms.</p>
-          <div class="case-arrow">View with password <span>→</span></div>
+          <div class="case-card-tags">
+            <span class="case-tag">Competitive Analysis</span>
+            <span class="cs-tag alt">Protected</span>
+          </div>
+          <h3>US E-Wallet Competitive Analysis</h3>
+          <p>Flow mapping across Venmo, Cash App, Apple Pay & Google Pay.</p>
+          <div class="case-arrow">View <span>→</span></div>
         </div>
       </a>
 
-      <a href="cards.html" class="case-card">
+      <a href="card-understanding.html" class="case-card">
         <div class="case-card-thumb thumb-sage">
           <span class="thumb-icon">🔒</span>
+          <img src="Images/bytedance.jpeg" alt="Bytedance" />
         </div>
         <div class="case-card-body">
-          <span class="case-tag">Market Research</span>
-          <span class="cs-tag alt">Password Protected</span>
-          <h3>Understanding Card Types</h3>
-          <p>Understand user motivations, market size, and business implications.</p>
-          <div class="case-arrow">View with password <span>→</span></div>
+          <div class="case-card-tags">
+            <span class="case-tag">Market Research</span>
+            <span class="cs-tag alt">Protected</span>
+          </div>
+          <h3>Card Understanding — US Market</h3>
+          <p>Credit, debit, co-branded, store & gift cards — motivations & market size.</p>
+          <div class="case-arrow">View <span>→</span></div>
         </div>
       </a>
 
@@ -151,38 +273,14 @@
       <div class="line"></div>
     </div>
     <div class="methods-list">
-      <span class="method-tag with-icon">
-        <img src="Images/Qualtrics.png" alt="Qualtrics" />
-        Qualtrics
-      </span>
-      <span class="method-tag with-icon">
-        <img src="Images/usertesting.png" alt="UserTesting" />
-        UserTesting
-      </span>
-      <span class="method-tag with-icon">
-        <img src="Images/figma.svg" alt="Figma" />
-        Figma
-      </span>
-      <span class="method-tag with-icon">
-        <img src="Images/miro.png" alt="Miro" />
-        Miro
-      </span>
-      <span class="method-tag with-icon">
-        <img src="Images/microsoft-excel.svg" alt="Excel" />
-        Excel
-      </span>
-      <span class="method-tag with-icon">
-        <img src="Images/spss.png" alt="SPSS" />
-        SPSS
-      </span>
-      <span class="method-tag with-icon">
-        <img src="Images/tableau.png" alt="Tableau" />
-        Tableau
-      </span>
-      <span class="method-tag with-icon">
-        <img src="Images/claude-ai-icon.svg" alt="Claude" />
-        Claude
-      </span>
+      <span class="method-tag with-icon"><img src="Images/Qualtrics.png" alt="Qualtrics" />Qualtrics</span>
+      <span class="method-tag with-icon"><img src="Images/usertesting.png" alt="UserTesting" />UserTesting</span>
+      <span class="method-tag with-icon"><img src="Images/figma.svg" alt="Figma" />Figma</span>
+      <span class="method-tag with-icon"><img src="Images/miro.png" alt="Miro" />Miro</span>
+      <span class="method-tag with-icon"><img src="Images/microsoft-excel.svg" alt="Excel" />Excel</span>
+      <span class="method-tag with-icon"><img src="Images/spss.png" alt="SPSS" />SPSS</span>
+      <span class="method-tag with-icon"><img src="Images/tableau.png" alt="Tableau" />Tableau</span>
+      <span class="method-tag with-icon"><img src="Images/claude-ai-icon.svg" alt="Claude" />Claude</span>
     </div>
   </section>
 
@@ -194,19 +292,15 @@
     </div>
     <div class="about-inner">
       <div class="about-photo-wrap">
-        <img src="Images/photo.jpg" alt="Your Name" class="about-photo" />
+        <img src="Images/photo.jpg" alt="Wing" class="about-photo" />
         <div class="photo-tape about-tape"></div>
       </div>
       <div class="about-box">
         <p>
           I'm a UX researcher with <strong>2+ years of experience</strong> working across payment, wearable hardware, AR/VR, and social impact initiatives. I'm drawn to explore and understand the <strong>"why"</strong> behind user behavior <strong>with a Human Factors lens</strong>, whether through operations or execution.
         </p>
-        <p>
-          Outside of work, I enjoy trying new food places, exploring photospots, and watching anime & drama.
-        </p>
-        <p>
-          If you're curious about my process, I'm always happy to talk.
-        </p>
+        <p>Outside of work, I enjoy trying new food places, exploring photospots, and watching anime & drama.</p>
+        <p>If you're curious about my process, I'm always happy to talk.</p>
       </div>
     </div>
   </section>
@@ -229,8 +323,7 @@
     <span class="page-num">pg. 01</span>
   </footer>
 
-</div><!-- /content-wrap -->
+</div>
 </main>
-
 </body>
 </html>
