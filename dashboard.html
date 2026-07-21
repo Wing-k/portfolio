@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboards & Data Visualization</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Dashboard entry card ── */
+    .dash-entry {
+      border: 1.5px solid var(--ink);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      box-shadow: 3px 3px 0 var(--sage-light);
+    }
+
+    .dash-embed {
+      width: 100%;
+      height: 520px;
+      border-bottom: 1.5px solid var(--ink);
+      background: var(--sage-pale);
+    }
+
+    .dash-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .dash-info {
+      padding: 22px 24px 26px;
+      background: var(--paper-warm);
+    }
+
+    .dash-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .dash-title {
+      font-family: 'Caveat', cursive;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .dash-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      background: var(--blush-light);
+      color: var(--ink-mid);
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+
+    .dash-tag.alt { background: var(--sage-light); }
+
+    .dash-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dash-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 10px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .dash-row-label {
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      padding-top: 1px;
+    }
+
+    .dash-row-value {
+      color: var(--ink-mid);
+      font-weight: 300;
+    }
+
+    .dash-row-value strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .dash-tools {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .dash-tool-tag {
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      padding: 2px 12px;
+      border: 1.5px solid var(--ink);
+      border-radius: 4px;
+      background: var(--paper);
+      color: var(--ink-mid);
+    }
+  </style>
+</head>
+<body>
+
+<div class="spiral-holes" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<main>
+<div class="content-wrap">
+
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="Images/logo.png" alt="Wing" class="nav-logo-img" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <a href="index.html" class="back-link">← Back to all work</a>
+
+  <header class="cs-header">
+    <div class="cs-header-text">
+      <div class="cs-tag-row">
+        <span class="cs-tag">Dashboards</span>
+        <span class="cs-tag alt">Data Visualization</span>
+      </div>
+      <h1 class="cs-title">Dashboards & Metrics</h1>
+      <p class="cs-subtitle">
+        Turning raw data into clear, interactive dashboards — tracking KPIs, surfacing patterns, and making numbers easy to act on.
+      </p>
+    </div>
+  </header>
+
+  <div class="cs-meta">
+    <div class="cs-meta-item">
+      <div class="cs-meta-label">Focus</div>
+      <div class="cs-meta-value">KPI visualization · Data storytelling</div>
+    </div>
+    <div class="cs-meta-item">
+      <div class="cs-meta-label">Tools</div>
+      <div class="cs-meta-value">Tableau · Excel</div>
+    </div>
+    <div class="cs-meta-item">
+      <div class="cs-meta-label">Dashboards</div>
+      <div class="cs-meta-value">2 interactive builds</div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+    <!-- ── Dashboard 1 ── -->
+    <div class="dash-entry">
+      <div class="dash-embed">
+        <iframe
+          src="https://public.tableau.com/views/Book2_17427018514010/Dashboard1?:embed=y&:showVizHome=no&:toolbar=no&:tabs=no"
+          allowfullscreen
+          title="Personal Banking Dashboard">
+        </iframe>
+      </div>
+      <div class="dash-info">
+        <div class="dash-header">
+          <h2 class="dash-title">Personal Banking Dashboard</h2>
+          <span class="dash-tag">Personal Finance</span>
+        </div>
+        <div class="dash-rows">
+          <div class="dash-row">
+            <span class="dash-row-label">Problem</span>
+            <span class="dash-row-value">Hard to see where money goes each month without manually piecing together bank statements and categories.</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Approach</span>
+            <span class="dash-row-value">Built a dashboard tracking <strong>total income, expenses, and net savings</strong> at a glance — with monthly income vs. expense trends, income source breakdown, and expense distribution by category.</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Tools</span>
+            <div class="dash-tools">
+              <span class="dash-tool-tag">Tableau</span>
+              <span class="dash-tool-tag">Excel</span>
+            </div>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Impact</span>
+            <span class="dash-row-value">Makes monthly financial health visible at a glance — surfacing spending patterns, income variability, and savings gaps without manual calculation.</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Learned</span>
+            <span class="dash-row-value">How to structure a personal finance view so the most important numbers (net savings) lead, with supporting breakdowns layered below — top-down information hierarchy.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Dashboard 2 ── -->
+    <div class="dash-entry">
+      <div class="dash-embed">
+        <iframe
+          src="https://public.tableau.com/views/Book1_17446907481750/Dashboard1?:embed=y&:showVizHome=no&:toolbar=no&:tabs=no"
+          allowfullscreen
+          title="Business Performance Dashboard">
+        </iframe>
+      </div>
+      <div class="dash-info">
+        <div class="dash-header">
+          <h2 class="dash-title">Business Performance Dashboard</h2>
+          <span class="dash-tag alt">Sales & Profit</span>
+        </div>
+        <div class="dash-rows">
+          <div class="dash-row">
+            <span class="dash-row-label">Problem</span>
+            <span class="dash-row-value">Business data scattered across categories, regions, and time periods — difficult to identify which products, states, or months are driving or dragging performance.</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Approach</span>
+            <span class="dash-row-value">Built an <strong>interactive cross-filtered dashboard</strong> — selecting a state filters all other charts (sales by month, profit by month, discount trends, category breakdown, and product-level sales vs. profit) to show that state's full picture.</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Tools</span>
+            <div class="dash-tools">
+              <span class="dash-tool-tag">Tableau</span>
+              <span class="dash-tool-tag">Excel</span>
+            </div>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Impact</span>
+            <span class="dash-row-value">Enables quick diagnosis of regional performance — surfaces which states are high-discount/low-profit and which categories drive the most margin, without needing a separate report per state.</span>
+          </div>
+          <div class="dash-row">
+            <span class="dash-row-label">Learned</span>
+            <span class="dash-row-value">How to design for exploration — making charts interactive so stakeholders can self-serve answers, reducing the need to request custom cuts of data every time a question comes up.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cs-body -->
+
+  <div class="cs-nav">
+    <span></span>
+    <a href="index.html#work" class="cs-nav-link next">All Work<span>→</span></a>
+  </div>
+
+  <footer>
+    <p>Made with Claude AI &amp; learning passion.</p>
+    <span class="page-num">p. 08</span>
+  </footer>
+
+</div>
+</main>
+</body>
+</html>
