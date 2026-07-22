@@ -17,17 +17,16 @@
 
     .dash-embed {
       width: 100%;
+      height: 700px;
       border-bottom: 1.5px solid var(--ink);
       background: var(--sage-pale);
       overflow: hidden;
     }
 
-    .dash-embed .tableauPlaceholder {
+    .dash-embed iframe {
       width: 100%;
-    }
-
-    .dash-embed object.tableauViz {
-      width: 100%;
+      height: 100%;
+      border: none;
       display: block;
     }
 
@@ -159,18 +158,11 @@
     <!-- ── Dashboard 1 ── -->
     <div class="dash-entry">
       <div class="dash-embed">
-        <div class="tableauPlaceholder" style="width:100%;">
-          <object class="tableauViz" style="display:none;">
-            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-            <param name="embed_code_version" value="3" />
-            <param name="name" value="Book2_17427018514010/Dashboard1" />
-            <param name="tabs" value="no" />
-            <param name="toolbar" value="no" />
-            <param name="animate_transition" value="yes" />
-            <param name="display_static_image" value="yes" />
-            <param name="display_spinner" value="yes" />
-          </object>
-        </div>
+        <iframe
+          src="https://public.tableau.com/views/Book2_17427018514010/Dashboard1?:embed=y&:showVizHome=no&:toolbar=yes&:tabs=no&:device=desktop"
+          allowfullscreen
+          title="Personal Banking Dashboard">
+        </iframe>
       </div>
       <div class="dash-info">
         <div class="dash-header">
@@ -208,18 +200,11 @@
     <!-- ── Dashboard 2 ── -->
     <div class="dash-entry">
       <div class="dash-embed">
-        <div class="tableauPlaceholder" style="width:100%;">
-          <object class="tableauViz" style="display:none;">
-            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-            <param name="embed_code_version" value="3" />
-            <param name="name" value="Book1_17446907481750/Dashboard1" />
-            <param name="tabs" value="no" />
-            <param name="toolbar" value="no" />
-            <param name="animate_transition" value="yes" />
-            <param name="display_static_image" value="yes" />
-            <param name="display_spinner" value="yes" />
-          </object>
-        </div>
+        <iframe
+          src="https://public.tableau.com/views/Book1_17446907481750/Dashboard1?:embed=y&:showVizHome=no&:toolbar=yes&:tabs=no&:device=desktop"
+          allowfullscreen
+          title="Business Performance Dashboard">
+        </iframe>
       </div>
       <div class="dash-info">
         <div class="dash-header">
@@ -268,6 +253,5 @@
 
 </div>
 </main>
-  <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
 </body>
 </html>
